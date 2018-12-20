@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SoilFEM - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\sbas\LOCALS~1\Temp\RSP9E.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GR /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SoilFEM.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Progs\VC\SoilFEM\GLView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\sbas\LOCALS~1\Temp\RSP9E.tmp" 
+Creating temporary file "C:\DOCUME~1\sbas\LOCALS~1\Temp\RSP9F.tmp" with contents
+[
+opengl32.lib glu32.lib glaux.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/GTPave.pdb" /debug /machine:I386 /out:"Debug/GTPave.exe" /pdbtype:sept 
+.\Debug\Base.obj
+.\Debug\Doc.obj
+.\Debug\GLView.obj
+.\Debug\Grid.obj
+.\Debug\LineLoad.obj
+.\Debug\MainFrm.obj
+.\Debug\NodalLoad.obj
+.\Debug\Node.obj
+.\Debug\Projection.obj
+.\Debug\SelectionList.obj
+.\Debug\SelectionManager.obj
+.\Debug\SoilFEM.obj
+.\Debug\SoilLayer.obj
+.\Debug\StdAfx.obj
+.\Debug\Vertex3.obj
+.\Debug\Viewport.obj
+.\Debug\VisualObject.obj
+.\Debug\SoilFEM.res
+]
+Creating command line "link.exe @C:\DOCUME~1\sbas\LOCALS~1\Temp\RSP9F.tmp"
+<h3>Output Window</h3>
+Compiling...
+GLView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+GTPave.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

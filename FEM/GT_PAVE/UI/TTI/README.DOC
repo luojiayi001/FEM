@@ -1,0 +1,20 @@
+4-24-96
+
+Test results on sand are saved in ASCII files with the filename SAx.ASC where
+x is the confining pressure in psi.  Laboratory triaxial tests under monotonic
+loading were conducted at confining pressures of 2, 5 and 10 psi.  Test data
+on crushed limestone are in the LSx.ASC files.
+
+The data for each record consist of:
+
+1)  time (seconds);
+2)  applied load (kips);
+3)  ram displacement (inches);
+4)  three radial displacements (inches);  and
+5)  three vertical displacements (inches).
+
+The specimens tested were 6 inches in diameter.  Vertical displacements were
+measured over a 5-inch gauge length.
+
+EGF
+

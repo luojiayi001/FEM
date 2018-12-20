@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/HHH/Desktop/CS241/cs241git/DEM/src/basics.c
+basics.h
+/Users/HHH/Desktop/CS241/cs241git/DEM/src/basics.h
+stdlib.h
+-
+stdio.h
+-
+
+/Users/HHH/Desktop/CS241/cs241git/DEM/src/basics.h
+
+/Users/HHH/Desktop/CS241/cs241git/DEM/src/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+pthread.h
+-
+basics.h
+/Users/HHH/Desktop/CS241/cs241git/DEM/src/basics.h
+

@@ -1,0 +1,133 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 Consolas;
+}
+{\colortbl;\red255\green255\blue255;\red27\green29\blue31;\red235\green236\blue237;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21600\viewh16500\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Github student pack:\
+https://education.github.com/pack\
+\
+UIUC computing power:\
+https://campuscluster.illinois.edu\
+\
+Google GPU Colab (based on Google Drive, only Python):\
+https://zhuanlan.zhihu.com/p/33344222\
+https://colab.research.google.com/notebooks/welcome.ipynb\
+\
+CUDA
+\f1 \'d1\'a7\'cf\'b0\'a3\'ba
+\f0 \
+https://www.zhihu.com/question/21059179\
+https://blog.csdn.net/maosong00/article/details/16828399\
+https://blog.csdn.net/kkk584520/article/details/9414191\
+\
+
+\b CGAL
+\f1 :\
+
+\f0\b0 CGAL on Xcode:
+\f1\b \
+
+\f0\b0 https://3d.bk.tudelft.nl/ken/en/2016/03/16/using-cgal-and-xcode.html\
+CGAL intro:
+\b \
+
+\b0 https://blog.csdn.net/jacayang\
+CUDA computational geometry:\
+http://www.comp.nus.edu.sg/~tants/gdel3d.html\
+http://daariga.github.io\
+CGAL-python bindings (SWIG): https://pypi.python.org/pypi/cgal-bindings\
+1. brew install cgal\
+2. Follow the same steps in "Boost" that drag the /include to Xcode Header search path and /lib to Library search path and .a .dylib to Link binary with libraries\
+3. CGAL uses gmp and mpfr, so we need to brew install gmp and brew install mpfr\
+4. Do the same steps to link gmp and mpfr in Xcode\
+5. To avoid regularly update, we can brew pin boost, brew pin cgal, brew pin gmp, brew pin mpfr. When we want to update, just brew unpin boost, etc.\
+6. Now the CGAL can run smoothly with Xcode
+\f1 \
+
+\f0 CGAL hello world:\
+https://doc.cgal.org/latest/Manual/tutorial_hello_world.html\
+
+\f1 \
+
+\f0\b Homebrew:
+\f1\b0 \
+https://segmentfault.com/a/1190000004353419\
+\
+
+\f0\b Boost:\
+
+\b0 1. brew install boost\
+2. location usually at /usr/local/Cellar/, cmd+shift+G(go) to the path you can see that\
+3. Xcode-click project-Build settings-Search paths-Header search paths-double click-+\
+/usr/local/Cellar/boost/1.66.0/include OR you can directly drag the folder to Xcode\
+Library search paths-double clikc-+\
+/usr/local/Cellar/boost/1.66.0/lib OR you can directly drag the folder to Xcode\
+4. Build phases-Link binary with libraries-+-Add other-go to /usr/local/Cellar/boost/1.66.0/lib-select all .a file\
+For cmake, see ref:\
+https://blog.csdn.net/pyang1989/article/details/41725747\
+\
+OpenCV: the same\
+\
+Isoparametric element:\
+https://wenku.baidu.com/view/3db79acdda38376baf1faedd.html\
+\
+
+\b GDB:\
+
+\b0 1. only install version 8.0.1:
+\f2\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/9ec9fb27a33698fc7636afce5c1c16787e9ce3f3/Formula/gdb.rb (version 8.1 doesn't work!)\
+Ref: https://stackoverflow.com/questions/49001329/gdb-doesnt-work-on-macos-high-sierra-10-13-3
+\f0\fs48 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+2. prevent upgrade: brew pin gdb \
+3. code signing in Keychain app: https://sourceware.org/gdb/wiki/BuildingOnDarwin\
+Note: make -j will compile in parallel!\
+Usage:\
+$ gdb ./main\
+$ (gdb) break ...\
+$ (gdb) layout src\
+$ (gdb) run args...\
+$ (gdb) next\
+
+\f1 $ (gdb) step\
+\
+
+\b Netgen:\
+
+\b0 http://www.cppblog.com/eryar/archive/2014/01/01/205102.html\
+\
+
+\b Gmsh:\
+
+\b0 https://openfoamwiki.net/index.php/2D_Mesh_Tutorial_using_GMSH\
+\
+Python + C++:\
+https://www.jianshu.com/p/b7a698259314\
+https://blog.csdn.net/Jerry_1126/article/details/46584179\
+1. Get the executable file from Xcode: https://blog.csdn.net/nokiaguy/article/details/7280162\
+1.1 Xcode-Preferences-Locations-Derived Data-Custom-"designate your path" (better to create a new folder, don't mess up in the source code folder)\
+1.2 Custom-Advanced...-choose "Custom"-Done\
+1.3 Executable file will be under Your Path/Build/Products/Debug/...\
+\
+2. Run the executable in Python\'a3\'ba\
+2.1 Save PyFEM.py under "Debug", together with "./FEM"\
+2.1.1 in PyFEM.py: "import os || main = "./FEM" || os.system(main)"\
+2.2 open terminal, cd to "Debug", and "python3 PyFEM.py" \
+\
+
+\b Hybrid C & C++:\
+
+\b0 https://www.jianshu.com/p/8d3eb96e142a\
+https://blog.csdn.net/huangblog/article/details/8440194\
+\
+FEniCS: a open cource fem\
+https://fenicsproject.org/download/\
+\
+Xcode:\
+Build Settings-Apple LLVM 9.0 Custom Compiler flags -Other C++ Flags - + "-O3" (compiler optimization is amazing!) you can also use -O2, -Ofast\
+\
+Using Eigen with BLAS:\
+https://eigen.tuxfamily.org/dox/TopicUsingBlasLapack.html}

@@ -1,0 +1,48 @@
+--------------------Configuration: Fenlin_old - Win32 Debug--------------------
+Begining build with project "C:\Gt_pave\Fang\Fenlin_old.dsp", at root.
+Active configuration is Win32 (x86) Console Application (based on Win32 (x86) Console Application)
+
+Project's tools are:
+			"Fortran 90 Compiler for 80x86" with flags "/include:"Debug/" /compile_only /nologo /debug:full /optimize:0 /module:"Debug/" /object:"Debug/" /pdbfile:"Debug/DF50.PDB" "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/Fenlin_old.bsc" "
+			"COFF Linker for 80x86" with flags "kernel32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Fenlin_old.pdb" /debug /machine:I386 /out:"Debug/Fenlin_old.exe" /pdbtype:sept "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\WINDOWS\TEMP\RSP2335.TMP" with contents </include:"Debug/" /compile_only /nologo /debug:full /optimize:0 /module:"Debug/" /object:"Debug/" /pdbfile:"Debug/DF50.PDB" 
+"C:\Gt_pave\Fang\Fenlin_old.for"
+"C:\Gt_pave\Fang\Felin.for"
+>
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Fenlin_old.pdb" /debug /machine:I386 /out:"Debug/Fenlin_old.exe" /pdbtype:sept  .\Debug\Fenlin_old.obj .\Debug\Felin.obj" 
+Compiling Fortran...
+C:\Gt_pave\Fang\Fenlin_old.for
+df: info: Some interprocedural optimizations may be disabled when compiling in this mode
+C:\Gt_pave\Fang\Felin.for
+Linking...
+Felin.obj : error LNK2005: _RESIDUE@36 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _MESHGR@60 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _SHAPE@44 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _EDGE@28 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _ADSTIF@32 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BC@16 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BANEL@4 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BANSOL@12 already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _MAIN__ already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _INOUT already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _RESIDUE already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _MESHGR already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _QUADSTF already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _SHAPE already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _EDGE already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _ADSTIF already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BC already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BANEL already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _BANSOL already defined in Fenlin_old.obj
+Felin.obj : error LNK2005: _STRESS already defined in Fenlin_old.obj
+Debug/Fenlin_old.exe : fatal error LNK1169: one or more multiply defined symbols found
+Error executing link.exe.
+
+
+
+Fenlin_old.exe - 21 error(s), 0 warning(s)

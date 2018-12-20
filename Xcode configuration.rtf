@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21600\viewh16500\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Configure Xcode for C++:\
+\
+Ref: \
+https://hiltmon.com/blog/2015/08/01/simple-c-plus-plus-from-makefiles-to-xcode-builds/\
+https://hiltmon.com/blog/2013/07/05/xcode-and-the-simple-c-plus-plus-project-structure/\
+\
+https://stackoverflow.com/questions/23438393/new-to-xcode-cant-open-files-in-c\
+\
+http://blog.csdn.net/u011577874/article/details/73000207\
+https://jtdaugh.github.io/xcode-umich/\
+\
+1 create and move .xcodeproj under the same folder of current code\
+\
+2 add files (except bin and build) with "Options-Create group" and "target-checked"\
+\
+3 Remove wrong target membership, usually Makefiles and ReadMe\
+\
+4 By default, Xcode can only read/write files with absolute paths, in order to work with relative paths, setup:\
+Product-Scheme-Edit Scheme, Run-Options-Use custom working directory-set to the current folder\
+\
+5 Argument passed in: Product-Scheme-Edit Scheme, Run-Arguments-+-"800" == Terminal, ./mp1 800\
+\
+All set, cmd+B or cmd+R to build and run}

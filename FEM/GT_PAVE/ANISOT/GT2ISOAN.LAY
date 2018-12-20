@@ -1,0 +1,32 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=0 Y=0 Scale=1.2 Orient Portrait
+$!ReadColorMap gt2isoan.map
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s01
+$!OpenWindow
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s02
+$!OpenWindow
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s03
+$!OpenWindow
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s04
+$!OpenWindow
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s05
+$!OpenWindow
+$!ReadDataFile gt2iso.plt
+$!ReadStyleSheet gt2isoan.s06
+$!ActivateGraphics
+$!RegenAll

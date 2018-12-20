@@ -1,0 +1,20 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=14.6796 Y=97.1877 Scale=0.9 Orient Portrait
+$!ReadColorMap GT2AN2.map
+$!ReadDataFile gt2an2.plt
+$!ReadStyleSheet GT2AN2.s01
+$!OpenWindow
+$!ReadDataFile gt2an2.plt
+$!ReadStyleSheet GT2AN2.s02
+$!ActivateGraphics
+$!RegenAll

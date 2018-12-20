@@ -1,0 +1,117 @@
+\hypertarget{class_material}{}\section{Material Class Reference}
+\label{class_material}\index{Material@{Material}}
+
+
+\mbox{\hyperlink{class_material}{Material}} class for storing the engineering properties of elements.  
+
+
+
+
+{\ttfamily \#include $<$Material.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_material_aa37938070139aa60f67d245d3b0ce352}{Material}} (const std\+::vector$<$ double $>$ \&properties)
+\begin{DoxyCompactList}\small\item\em Custom constructor to create an element material. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_material_abaae85c04f84374421337e2bf140ec0a}{E\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the stress-\/strain constitutive matrix of the element. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_material_a5995e3b7d8063f670e33f2fcd7315928}{body\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Get the body force to be used in the load condition. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_material_ae84dc6468819487050db131b589ffb95}{thermal\+Strain}} () const
+\begin{DoxyCompactList}\small\item\em Get the thermal strain to be used in the stress computation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_material_a505d8c136dd80cdfb78e2b9f6468be46}\label{class_material_a505d8c136dd80cdfb78e2b9f6468be46}} 
+double \mbox{\hyperlink{class_material_a505d8c136dd80cdfb78e2b9f6468be46}{modulus\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The modulus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_ac49581c3474d4106011a211f063c5b1d}\label{class_material_ac49581c3474d4106011a211f063c5b1d}} 
+double \mbox{\hyperlink{class_material_ac49581c3474d4106011a211f063c5b1d}{poisson\+Ratio\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The Poisson\textquotesingle{}s ratio. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_ad8eb23b2b0c134635888be8e3b6a824c}\label{class_material_ad8eb23b2b0c134635888be8e3b6a824c}} 
+Matrix\+Xd \mbox{\hyperlink{class_material_ad8eb23b2b0c134635888be8e3b6a824c}{E\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The 4-\/by-\/4 stress-\/strain constitutive matrix sigma = E $\ast$ e. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_af29cbdb8e4fa9fbc0e04cf89b72a2c18}\label{class_material_af29cbdb8e4fa9fbc0e04cf89b72a2c18}} 
+Vector2d \mbox{\hyperlink{class_material_af29cbdb8e4fa9fbc0e04cf89b72a2c18}{body\+Force\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The body force (unit weight) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_a51b256107e8ddc53c6b12b90b481034d}\label{class_material_a51b256107e8ddc53c6b12b90b481034d}} 
+double \mbox{\hyperlink{class_material_a51b256107e8ddc53c6b12b90b481034d}{thermal\+Coeff\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The coefficient of thermal effect. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_a4c80934742a60ab5414e92c4b97d08ca}\label{class_material_a4c80934742a60ab5414e92c4b97d08ca}} 
+double \mbox{\hyperlink{class_material_a4c80934742a60ab5414e92c4b97d08ca}{delta\+T\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The temperature change (assume same across the entire element) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_a26c58d90ad30a49acb8342196166ab41}\label{class_material_a26c58d90ad30a49acb8342196166ab41}} 
+Vector\+Xd \mbox{\hyperlink{class_material_a26c58d90ad30a49acb8342196166ab41}{thermal\+Strain\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The thermal strain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_material}{Material}} class for storing the engineering properties of elements. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_material_aa37938070139aa60f67d245d3b0ce352}\label{class_material_aa37938070139aa60f67d245d3b0ce352}} 
+\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection{\texorpdfstring{Material()}{Material()}}
+{\footnotesize\ttfamily Material\+::\+Material (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{properties }\end{DoxyParamCaption})}
+
+
+
+Custom constructor to create an element material. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em properties} & A list of the property parameters. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_material_a5995e3b7d8063f670e33f2fcd7315928}\label{class_material_a5995e3b7d8063f670e33f2fcd7315928}} 
+\index{Material@{Material}!body\+Force@{body\+Force}}
+\index{body\+Force@{body\+Force}!Material@{Material}}
+\subsubsection{\texorpdfstring{body\+Force()}{bodyForce()}}
+{\footnotesize\ttfamily const Vector2d \& Material\+::body\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the body force to be used in the load condition. 
+
+\begin{DoxyReturn}{Returns}
+The body force as a 2-\/by-\/1 vector for 2D axisymmetric problem. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_material_abaae85c04f84374421337e2bf140ec0a}\label{class_material_abaae85c04f84374421337e2bf140ec0a}} 
+\index{Material@{Material}!E\+Matrix@{E\+Matrix}}
+\index{E\+Matrix@{E\+Matrix}!Material@{Material}}
+\subsubsection{\texorpdfstring{E\+Matrix()}{EMatrix()}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Material\+::\+E\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the stress-\/strain constitutive matrix of the element. 
+
+\begin{DoxyReturn}{Returns}
+The 4-\/by-\/4 E matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_material_ae84dc6468819487050db131b589ffb95}\label{class_material_ae84dc6468819487050db131b589ffb95}} 
+\index{Material@{Material}!thermal\+Strain@{thermal\+Strain}}
+\index{thermal\+Strain@{thermal\+Strain}!Material@{Material}}
+\subsubsection{\texorpdfstring{thermal\+Strain()}{thermalStrain()}}
+{\footnotesize\ttfamily const Vector\+Xd \& Material\+::thermal\+Strain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the thermal strain to be used in the stress computation. 
+
+\begin{DoxyReturn}{Returns}
+The thermal strain as a 4-\/by-\/1 vector for 2D axisymmetric problem. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_material_8h}{Material.\+h}}\item 
+\mbox{\hyperlink{_material_8cpp}{Material.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,520 @@
+\hypertarget{class_shape}{}\section{Shape Class Reference}
+\label{class_shape}\index{Shape@{Shape}}
+Inheritance diagram for Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shape}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shape_aab720d4a61d7f8016ab9a72bab846cbe}{Shape}} (const int \&nodes, const int \&gaussians, const int \&edges, const int \&edge\+Nodes, const int \&edge\+Gaussians)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_shape}{Shape}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_ac3b9fc48965274893f25b18aa14ba665}\label{class_shape_ac3b9fc48965274893f25b18aa14ba665}} 
+virtual \mbox{\hyperlink{class_shape_ac3b9fc48965274893f25b18aa14ba665}{$\sim$\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_shape}{Shape}}. \end{DoxyCompactList}\item 
+virtual Vector\+Xd \mbox{\hyperlink{class_shape_a0e0400bca54c29b5097c84ace51ecc7b}{function\+Vec}} (const Vector2d \&point) const =0
+\begin{DoxyCompactList}\small\item\em Compute the shape Function N in a column vector at a given point. \end{DoxyCompactList}\item 
+virtual Matrix\+Xd \mbox{\hyperlink{class_shape_a7a2dc7c642bdea2a1359e3795fd9414d}{function\+Mat}} (const Vector2d \&point) const =0
+\begin{DoxyCompactList}\small\item\em Stack and interleave the shape Function N above into a matrix for the convenience of stiffness matrix computation. \end{DoxyCompactList}\item 
+virtual Matrix\+Xd \mbox{\hyperlink{class_shape_a29de5d31e0fa74a4d1067f6d14cd94ed}{function\+Deriv}} (const Vector2d \&point) const =0
+\begin{DoxyCompactList}\small\item\em Compute the local derivatives d\+N/d(xi) and d\+N/d(eta) of the shape function at a given point in isoparametric coordinates. \end{DoxyCompactList}\item 
+virtual Vector\+Xd \mbox{\hyperlink{class_shape_aeb6b5b956ca89b571d17ee7e140bb689}{edge\+Function\+Vec}} (const double \&point) const =0
+\begin{DoxyCompactList}\small\item\em Compute the edge shape Function N in a column vector at a given point. \end{DoxyCompactList}\item 
+virtual Matrix\+Xd \mbox{\hyperlink{class_shape_ac9854f15377ea07c97be16049e3058d5}{edge\+Function\+Mat}} (const double \&point) const =0
+\begin{DoxyCompactList}\small\item\em Stack and interleave the edge shape Function N above into a matrix. \end{DoxyCompactList}\item 
+virtual Vector\+Xd \mbox{\hyperlink{class_shape_a652164292592de3157eb4021f43c9305}{edge\+Function\+Deriv}} (const double \&point) const =0
+\begin{DoxyCompactList}\small\item\em Compute the local derivatives d\+N/dx of the edge shape function at a given point in isoparametric coordinates. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Vector2d $>$ \& \mbox{\hyperlink{class_shape_a8d53e88ab51926dc57177c56c3fde714}{gaussian\+Pt}} () const
+\begin{DoxyCompactList}\small\item\em Get the gaussian integration points to be used in load distribution and stress/strain computation. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_shape_a66cd2cc62229a4757a5d0eeeb36197de}{gaussian\+Pt}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get the ith gaussian integration points. \end{DoxyCompactList}\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_shape_aa6112974b77db75f70e5a7367d30ed78}{gaussian\+Wt}} () const
+\begin{DoxyCompactList}\small\item\em Get the gaussian integration weights to be used in load distribution and stress/strain computation. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{class_shape_ab59598c42a7ecbe41998820bf43e1307}{gaussian\+Wt}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get the ith gaussian weights. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_shape_a69936bb268e5a1547f5e5838dde5bcdf}{function\+Vec}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached shape function (vector form) at certin Gaussian point. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_shape_a96b2b268631566142aa054211ddd9655}{function\+Mat}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached shape function (matrix form) at certin Gaussian point. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_shape_abb3d4512095e82bcaf821385e1952336}{function\+Deriv}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached shape function derivative matrix at certin Gaussian point. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_shape_a1d79b0ac86d547e06121eec43cbdea2b}{edge\+Function\+Vec}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached edge shape function (vector form) at certin Gaussian point. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_shape_a5d6e400458f3381b3adeeac34839e401}{edge\+Function\+Mat}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached edge shape function (matrix form) at certin Gaussian point. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_shape_adb82ef67f86561caa0cebdb4abb7342a}{edge\+Function\+Deriv}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get pre-\/cached edge shape function derivative matrix at certin Gaussian point. \end{DoxyCompactList}\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_shape_af004504284fc26fee888906a13a6fab2}{edge\+Gaussian\+Pt}} () const
+\begin{DoxyCompactList}\small\item\em Get the edge gaussian integration points to be used in load distribution and stress/strain computation. \end{DoxyCompactList}\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_shape_a651a829c004900fe28c9bdadf0939306}{edge\+Gaussian\+Wt}} () const
+\begin{DoxyCompactList}\small\item\em Get the edge gaussian integration weights to be used in load distribution and stress/strain computation. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_shape_a3d0c3331bae4cad90eb8b5de8f095140}{edge}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Get the node index of ith edge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_shape_aea3b1ebc3bc64d488e8d55877fcd5ec7}\label{class_shape_aea3b1ebc3bc64d488e8d55877fcd5ec7}} 
+void \mbox{\hyperlink{class_shape_aea3b1ebc3bc64d488e8d55877fcd5ec7}{\+\_\+cache\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Private helper function for Pre-\/caching the shape functions at Gaussian integration points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_shape_a8bf4568013144202ee5152bd3cb615ce}\label{class_shape_a8bf4568013144202ee5152bd3cb615ce}} 
+int \mbox{\hyperlink{class_shape_a8bf4568013144202ee5152bd3cb615ce}{num\+Nodes\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of nodes of this element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a23d18bcf055ecd99e5754bb749ca28b5}\label{class_shape_a23d18bcf055ecd99e5754bb749ca28b5}} 
+std\+::vector$<$ Vector2d $>$ \mbox{\hyperlink{class_shape_a23d18bcf055ecd99e5754bb749ca28b5}{node\+Coord\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The local isoparametric coordinates (xi,eta) of the element nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_aa12dd7e6505e22036ab61b1b0a3debd3}\label{class_shape_aa12dd7e6505e22036ab61b1b0a3debd3}} 
+int \mbox{\hyperlink{class_shape_aa12dd7e6505e22036ab61b1b0a3debd3}{num\+Gaussian\+Pts\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of Gaussian integration points of the element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_ab8ca49604843e6153730bb2138aa1255}\label{class_shape_ab8ca49604843e6153730bb2138aa1255}} 
+std\+::vector$<$ Vector2d $>$ \mbox{\hyperlink{class_shape_ab8ca49604843e6153730bb2138aa1255}{gaussian\+Pt\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the coordinates of 2D Gaussian integration points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a0a81426ae65a0216eb099ab63cd4691b}\label{class_shape_a0a81426ae65a0216eb099ab63cd4691b}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_shape_a0a81426ae65a0216eb099ab63cd4691b}{gaussian\+Wt\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the weights of Gaussian integration points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_ab20d7fb49963b09d1c294f28c6e5295b}\label{class_shape_ab20d7fb49963b09d1c294f28c6e5295b}} 
+std\+::vector$<$ Vector\+Xd $>$ \mbox{\hyperlink{class_shape_ab20d7fb49963b09d1c294f28c6e5295b}{shape\+Vec\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the shape functions (vector form) at all Gaussian points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a9eab26923dfc3dbe90dbcab164e63f28}\label{class_shape_a9eab26923dfc3dbe90dbcab164e63f28}} 
+std\+::vector$<$ Matrix\+Xd $>$ \mbox{\hyperlink{class_shape_a9eab26923dfc3dbe90dbcab164e63f28}{shape\+Mat\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the shape functions (stacked matrix form) at all Gaussian points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a11bf0927166d002fb730889275d608ea}\label{class_shape_a11bf0927166d002fb730889275d608ea}} 
+std\+::vector$<$ Matrix\+Xd $>$ \mbox{\hyperlink{class_shape_a11bf0927166d002fb730889275d608ea}{shape\+Deriv\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the derivatives of shape function (stacked matrix form) at all Gaussian points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a48cc39a592761dce468c50c9bf0d77fe}\label{class_shape_a48cc39a592761dce468c50c9bf0d77fe}} 
+int \mbox{\hyperlink{class_shape_a48cc39a592761dce468c50c9bf0d77fe}{num\+Edges\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of edges of this element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a0de5974df65f16f324f3c1f3fcfaee81}\label{class_shape_a0de5974df65f16f324f3c1f3fcfaee81}} 
+int \mbox{\hyperlink{class_shape_a0de5974df65f16f324f3c1f3fcfaee81}{num\+Edge\+Nodes\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of nodes an edge has. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a5834a3c81b025002ff7325c7e030f2cf}\label{class_shape_a5834a3c81b025002ff7325c7e030f2cf}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_shape_a5834a3c81b025002ff7325c7e030f2cf}{edge\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the edges with its node indices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a974a69473ea089377e2a45295306142d}\label{class_shape_a974a69473ea089377e2a45295306142d}} 
+int \mbox{\hyperlink{class_shape_a974a69473ea089377e2a45295306142d}{num\+Edge\+Gaussian\+Pts\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of Gaussian integration points of an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a607f731349b6bc16fe81a08289c7e452}\label{class_shape_a607f731349b6bc16fe81a08289c7e452}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_shape_a607f731349b6bc16fe81a08289c7e452}{edge\+Gaussian\+Pt\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the coordinates of the 1D Gaussian points of an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_ac44104e1110f94f376419f62c76d4428}\label{class_shape_ac44104e1110f94f376419f62c76d4428}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_shape_ac44104e1110f94f376419f62c76d4428}{edge\+Gaussian\+Wt\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the weights of Gaussian points of an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_ac668fd1eff17dac98616158e1cab17fa}\label{class_shape_ac668fd1eff17dac98616158e1cab17fa}} 
+std\+::vector$<$ Vector\+Xd $>$ \mbox{\hyperlink{class_shape_ac668fd1eff17dac98616158e1cab17fa}{edge\+Shape\+Vec\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the edge shape functions (vector form) at Gaussian points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_af81a39560f87d14ba1a50c9eda7fff12}\label{class_shape_af81a39560f87d14ba1a50c9eda7fff12}} 
+std\+::vector$<$ Matrix\+Xd $>$ \mbox{\hyperlink{class_shape_af81a39560f87d14ba1a50c9eda7fff12}{edge\+Shape\+Mat\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the edge shape functions (stacked matrix form) at Gaussian points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_shape_a5cc69ac9662365109eabd0a193e48781}\label{class_shape_a5cc69ac9662365109eabd0a193e48781}} 
+std\+::vector$<$ Vector\+Xd $>$ \mbox{\hyperlink{class_shape_a5cc69ac9662365109eabd0a193e48781}{edge\+Shape\+Deriv\+\_\+}}
+\begin{DoxyCompactList}\small\item\em An array of the derivatives of edge shape function (vector form) at Gaussian points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_aab720d4a61d7f8016ab9a72bab846cbe}\label{class_shape_aab720d4a61d7f8016ab9a72bab846cbe}} 
+\index{Shape@{Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{Shape()}{Shape()}}
+{\footnotesize\ttfamily Shape\+::\+Shape (\begin{DoxyParamCaption}\item[{const int \&}]{nodes,  }\item[{const int \&}]{gaussians,  }\item[{const int \&}]{edges,  }\item[{const int \&}]{edge\+Nodes,  }\item[{const int \&}]{edge\+Gaussians }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_shape}{Shape}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & Number of nodes of this shape of element. \\
+\hline
+{\em gaussians} & Number of Gaussian integration points of this shape of element. \\
+\hline
+{\em edges} & Number of edges of this shape of element. \\
+\hline
+{\em edge\+Nodes} & Number of nodes each edge consists of. \\
+\hline
+{\em edge\+Gaussians} & Number of Gaussian intergration points at each edge.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The information about edges and its integration are specified at initialization because no assumption or generic forms can be made. It should leave the decision for user to define and select different types of integration scheme (normal integration, reduced integration, etc.). Additionally, no assumption can be made because the shape could be triangular, quadrilateral, or any arbitrary form so that no predetermined \mbox{\hyperlink{class_node}{Node}} number-\/\+Edge number-\/\+Gaussian point number relation exists. 
+\end{DoxyNote}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shape_a3d0c3331bae4cad90eb8b5de8f095140}\label{class_shape_a3d0c3331bae4cad90eb8b5de8f095140}} 
+\index{Shape@{Shape}!edge@{edge}}
+\index{edge@{edge}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge()}{edge()}}
+{\footnotesize\ttfamily const std\+::vector$<$ int $>$ \& Shape\+::edge (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get the node index of ith edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The zero-\/based edge index being queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of node indices belonging to ith edge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a652164292592de3157eb4021f43c9305}\label{class_shape_a652164292592de3157eb4021f43c9305}} 
+\index{Shape@{Shape}!edge\+Function\+Deriv@{edge\+Function\+Deriv}}
+\index{edge\+Function\+Deriv@{edge\+Function\+Deriv}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Deriv()}{edgeFunctionDeriv()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Vector\+Xd Shape\+::edge\+Function\+Deriv (\begin{DoxyParamCaption}\item[{const double \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute the local derivatives d\+N/dx of the edge shape function at a given point in isoparametric coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 1D point x at which the edge shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge shape function derivatives dN as a column vector at given point. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a81582d03b2fc79a8a5705111ad85163f}{Shape\+Q8}}.
+
+\mbox{\Hypertarget{class_shape_adb82ef67f86561caa0cebdb4abb7342a}\label{class_shape_adb82ef67f86561caa0cebdb4abb7342a}} 
+\index{Shape@{Shape}!edge\+Function\+Deriv@{edge\+Function\+Deriv}}
+\index{edge\+Function\+Deriv@{edge\+Function\+Deriv}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Deriv()}{edgeFunctionDeriv()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Vector\+Xd \& Shape\+::edge\+Function\+Deriv (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached edge shape function derivative matrix at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The derivatives of shape function dN as a column vector at Gaussian point i. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_ac9854f15377ea07c97be16049e3058d5}\label{class_shape_ac9854f15377ea07c97be16049e3058d5}} 
+\index{Shape@{Shape}!edge\+Function\+Mat@{edge\+Function\+Mat}}
+\index{edge\+Function\+Mat@{edge\+Function\+Mat}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Mat()}{edgeFunctionMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Matrix\+Xd Shape\+::edge\+Function\+Mat (\begin{DoxyParamCaption}\item[{const double \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stack and interleave the edge shape Function N above into a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 1D point x at which the edge shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stacked and interleaved edge shape function N as a matrix at given point. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a0c52ac2dbeb9297c11e03c664d4750b7}{Shape\+Q8}}.
+
+\mbox{\Hypertarget{class_shape_a5d6e400458f3381b3adeeac34839e401}\label{class_shape_a5d6e400458f3381b3adeeac34839e401}} 
+\index{Shape@{Shape}!edge\+Function\+Mat@{edge\+Function\+Mat}}
+\index{edge\+Function\+Mat@{edge\+Function\+Mat}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Mat()}{edgeFunctionMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Shape\+::edge\+Function\+Mat (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached edge shape function (matrix form) at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge shape function N as a matrix (interleaved) at Gaussian point i. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_aeb6b5b956ca89b571d17ee7e140bb689}\label{class_shape_aeb6b5b956ca89b571d17ee7e140bb689}} 
+\index{Shape@{Shape}!edge\+Function\+Vec@{edge\+Function\+Vec}}
+\index{edge\+Function\+Vec@{edge\+Function\+Vec}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Vec()}{edgeFunctionVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Vector\+Xd Shape\+::edge\+Function\+Vec (\begin{DoxyParamCaption}\item[{const double \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute the edge shape Function N in a column vector at a given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 1D point x at which the edge shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge shape function N as a column vector at given point. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a6d5e89cd06d6639e599215686553adbe}{Shape\+Q8}}.
+
+\mbox{\Hypertarget{class_shape_a1d79b0ac86d547e06121eec43cbdea2b}\label{class_shape_a1d79b0ac86d547e06121eec43cbdea2b}} 
+\index{Shape@{Shape}!edge\+Function\+Vec@{edge\+Function\+Vec}}
+\index{edge\+Function\+Vec@{edge\+Function\+Vec}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Function\+Vec()}{edgeFunctionVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Vector\+Xd \& Shape\+::edge\+Function\+Vec (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached edge shape function (vector form) at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge shape function N as a column vector at Gaussian point i. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_af004504284fc26fee888906a13a6fab2}\label{class_shape_af004504284fc26fee888906a13a6fab2}} 
+\index{Shape@{Shape}!edge\+Gaussian\+Pt@{edge\+Gaussian\+Pt}}
+\index{edge\+Gaussian\+Pt@{edge\+Gaussian\+Pt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Gaussian\+Pt()}{edgeGaussianPt()}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& Shape\+::edge\+Gaussian\+Pt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the edge gaussian integration points to be used in load distribution and stress/strain computation. 
+
+\begin{DoxyReturn}{Returns}
+An array of 1D points. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a651a829c004900fe28c9bdadf0939306}\label{class_shape_a651a829c004900fe28c9bdadf0939306}} 
+\index{Shape@{Shape}!edge\+Gaussian\+Wt@{edge\+Gaussian\+Wt}}
+\index{edge\+Gaussian\+Wt@{edge\+Gaussian\+Wt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{edge\+Gaussian\+Wt()}{edgeGaussianWt()}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& Shape\+::edge\+Gaussian\+Wt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the edge gaussian integration weights to be used in load distribution and stress/strain computation. 
+
+\begin{DoxyReturn}{Returns}
+An array of weight values. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a29de5d31e0fa74a4d1067f6d14cd94ed}\label{class_shape_a29de5d31e0fa74a4d1067f6d14cd94ed}} 
+\index{Shape@{Shape}!function\+Deriv@{function\+Deriv}}
+\index{function\+Deriv@{function\+Deriv}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Deriv()}{functionDeriv()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Matrix\+Xd Shape\+::function\+Deriv (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute the local derivatives d\+N/d(xi) and d\+N/d(eta) of the shape function at a given point in isoparametric coordinates. 
+
+If n is the number of nodes of this element type, then this function will returns a 2-\/by-\/n matrix\+:
+
+\mbox{[} d\+N1(x)/d(xi) d\+N2(x)/d(xi) ... d\+Nn(x)/d(xi) \mbox{]} \mbox{[} d\+N1(x)/d(eta) d\+N2(x)/d(eta) ... d\+Nn(x)/d(eta) \mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 2D point x(r,z) at which the shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stacked and interleaved shape function derivatives dN as a matrix at given point. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a49ab65aee22c0b8df4b9cb24b973a882}{Shape\+Q8}}, and \mbox{\hyperlink{class_shape_q4_a23e45399e8867f74c47eb41a30328e3e}{Shape\+Q4}}.
+
+\mbox{\Hypertarget{class_shape_abb3d4512095e82bcaf821385e1952336}\label{class_shape_abb3d4512095e82bcaf821385e1952336}} 
+\index{Shape@{Shape}!function\+Deriv@{function\+Deriv}}
+\index{function\+Deriv@{function\+Deriv}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Deriv()}{functionDeriv()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Shape\+::function\+Deriv (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached shape function derivative matrix at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The derivatives of shape function dN as a matrix (not interleaved) at Gaussian point i. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a7a2dc7c642bdea2a1359e3795fd9414d}\label{class_shape_a7a2dc7c642bdea2a1359e3795fd9414d}} 
+\index{Shape@{Shape}!function\+Mat@{function\+Mat}}
+\index{function\+Mat@{function\+Mat}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Mat()}{functionMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Matrix\+Xd Shape\+::function\+Mat (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stack and interleave the shape Function N above into a matrix for the convenience of stiffness matrix computation. 
+
+If n is the number of nodes of this element type, then this function will returns a 2-\/by-\/2n matrix\+:
+
+\mbox{[} N1(x) 0 $\vert$ N2(x) 0 $\vert$ ... $\vert$ Nn(x) 0 \mbox{]} \mbox{[} 0 N1(x) $\vert$ 0 N2(x) $\vert$ ... $\vert$ 0 Nn(x) \mbox{]}
+
+this is because our displacement vector is stored in an interleaving form as \mbox{[}r1, z1, r2, z2, ..., rn, zn\mbox{]}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 2D point x(r,z) at which the shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stacked and interleaved shape function N as a matrix at given point. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a5e84879bda809350eb6f70a6d01d73f1}{Shape\+Q8}}, and \mbox{\hyperlink{class_shape_q4_a9a74aff61bbcbfa73480cbe520a21563}{Shape\+Q4}}.
+
+\mbox{\Hypertarget{class_shape_a96b2b268631566142aa054211ddd9655}\label{class_shape_a96b2b268631566142aa054211ddd9655}} 
+\index{Shape@{Shape}!function\+Mat@{function\+Mat}}
+\index{function\+Mat@{function\+Mat}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Mat()}{functionMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Shape\+::function\+Mat (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached shape function (matrix form) at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shape function N as a matrix (interleaved) at Gaussian point i. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a0e0400bca54c29b5097c84ace51ecc7b}\label{class_shape_a0e0400bca54c29b5097c84ace51ecc7b}} 
+\index{Shape@{Shape}!function\+Vec@{function\+Vec}}
+\index{function\+Vec@{function\+Vec}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Vec()}{functionVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual Vector\+Xd Shape\+::function\+Vec (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute the shape Function N in a column vector at a given point. 
+
+If n is the number of nodes of this element type, then this function will returns a n-\/by-\/1 column vector\+:
+
+\mbox{[} N1(x), N2(x), ..., Nn(x) \mbox{]}
+
+where Ni(x) is the shape function with respect to ith node at point x.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & A 2D point x(r,z) at which the shape function to be evaluated. Pass-\/by-\/ref. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shape function N as a column vector at given point.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use a const qualifier for reference variable is the recommended programming style. \mbox{\hyperlink{class_shape}{Shape}} function depends on given point, so we can only return-\/by-\/value, no more space for optimization. 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{class_shape_q8_a7e2de42658deff3c6912cc102b12cc96}{Shape\+Q8}}.
+
+\mbox{\Hypertarget{class_shape_a69936bb268e5a1547f5e5838dde5bcdf}\label{class_shape_a69936bb268e5a1547f5e5838dde5bcdf}} 
+\index{Shape@{Shape}!function\+Vec@{function\+Vec}}
+\index{function\+Vec@{function\+Vec}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{function\+Vec()}{functionVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Vector\+Xd \& Shape\+::function\+Vec (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get pre-\/cached shape function (vector form) at certin Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shape function N as a column vector at Gaussian point i.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Note that there are two sets of functions that have same name but different function signatures (i.\+e., have different types of parameters). The above one is used to compute shape function at any arbitrary point, this function is to get the pre-\/cached shape function at Gaussian points. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_shape_a8d53e88ab51926dc57177c56c3fde714}\label{class_shape_a8d53e88ab51926dc57177c56c3fde714}} 
+\index{Shape@{Shape}!gaussian\+Pt@{gaussian\+Pt}}
+\index{gaussian\+Pt@{gaussian\+Pt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{gaussian\+Pt()}{gaussianPt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ Vector2d $>$ \& Shape\+::gaussian\+Pt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the gaussian integration points to be used in load distribution and stress/strain computation. 
+
+\begin{DoxyReturn}{Returns}
+An array of 2D points. Since the whole \mbox{\hyperlink{class_shape}{Shape}} object is dynamically allocated on heap, we can return-\/by-\/ref. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a66cd2cc62229a4757a5d0eeeb36197de}\label{class_shape_a66cd2cc62229a4757a5d0eeeb36197de}} 
+\index{Shape@{Shape}!gaussian\+Pt@{gaussian\+Pt}}
+\index{gaussian\+Pt@{gaussian\+Pt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{gaussian\+Pt()}{gaussianPt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const Vector2d \& Shape\+::gaussian\+Pt (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get the ith gaussian integration points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gaussian point. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_aa6112974b77db75f70e5a7367d30ed78}\label{class_shape_aa6112974b77db75f70e5a7367d30ed78}} 
+\index{Shape@{Shape}!gaussian\+Wt@{gaussian\+Wt}}
+\index{gaussian\+Wt@{gaussian\+Wt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{gaussian\+Wt()}{gaussianWt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& Shape\+::gaussian\+Wt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the gaussian integration weights to be used in load distribution and stress/strain computation. 
+
+\begin{DoxyReturn}{Returns}
+An array of weight values. Since the whole \mbox{\hyperlink{class_shape}{Shape}} object is dynamically allocated on heap, we can return-\/by-\/ref. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_ab59598c42a7ecbe41998820bf43e1307}\label{class_shape_ab59598c42a7ecbe41998820bf43e1307}} 
+\index{Shape@{Shape}!gaussian\+Wt@{gaussian\+Wt}}
+\index{gaussian\+Wt@{gaussian\+Wt}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{gaussian\+Wt()}{gaussianWt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const double \& Shape\+::gaussian\+Wt (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Get the ith gaussian weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of Gaussian points to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gaussian weight. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_shape_8h}{Shape.\+h}}\item 
+\mbox{\hyperlink{_shape_8cpp}{Shape.\+cpp}}\end{DoxyCompactItemize}

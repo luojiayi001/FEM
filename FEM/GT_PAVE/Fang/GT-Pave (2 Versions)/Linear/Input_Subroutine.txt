@@ -1,0 +1,305 @@
+***********************************************************************
+*	SUBROUTINE INOUT FOR GENERAL INPUT AND OUTPUT 
+***********************************************************************
+      SUBROUTINE INOUT(TITLE,IBD,BVAL,NEL,NPT,KQ,RQ,ZQ,R,Z,RI,LJOI,
+     +                 NDT,DT,EQR0,EQTH0,EQZ0,IEDGE,ELOAD,NLPTS,
+     +                 NUMEL,NUPTS,NUBPTS,NN,INTELM,MATID,NINTEL,
+     +                 SRES)
+*----------------------------------------------------------------------
+      DIMENSION  IBD(N1,3), BVAL(N1,2), NEL(N1),NPT(N1),LJOI(L4),
+     +           KQ(8,N1), RQ(8,N1), ZQ(8,N1),R(L4),Z(L4),
+     +           NDT(L4), DT(L4), EQR0(8,N1),RI(L4,2),SRES(4,L4),
+     +           EQTH0(8,N1),EQZ0(8,N1),IEDGE(N1),ELOAD(8,N1),
+     +           SPLAY(30), COLSP(30),INTELM(20), MATID(N1), NELRES(30)
+*----------------------------------------------------------------------
+      COMMON /CV/  L1,L2,NBAND,NTPTS                  
+      COMMON /PROP/ISOT(10),EM(10),PR(10),E2(10),G2(10),PR1(10),PR2(10),
+     +            RATION(10),RATIOM(10),ALPHA(10),BODYFR(10),BODYFZ(10),
+     +		  LAYNAME(10)
+      COMMON /VAL/ L3,N1,NDFRE,NFP1,NODES
+      COMMON /INT/ L4,NGAUSS
+      CHARACTER*80 TITLE
+      CHARACTER*20 LAYNAME
+      DOUBLE PRECISION SRES
+*----------------------------------------------------------------------
+      READ(5,999)TITLE
+      WRITE(8,999)TITLE
+  999 FORMAT(A80)
+*---------------------------------------------------------------
+*      INPUT NUM. OF ELEMENTS, NUM OF TOTAL NODAL POINTS, NUM OF
+*      BOUNDARY POINTS, NUM OF ELEMENT DEGREE OF FREEDOM, NUM OF
+*      ELEMENT NODES                     
+*---------------------------------------------------------------
+      READ(5,*) NUMEL, NUPTS, NUBPTS                                    
+      WRITE(8,21) NUMEL, NUPTS, NUBPTS, NDFRE, NODES                      
+      NN = NDFRE*NODES                                                  
+      NTPTS = NUPTS*NDFRE                                               
+      NFP1 = NDFRE + 1                                                  
+      WRITE(8,30)
+*-----------------------------------------------------------------
+*      INPUT NUMBER OF MATERIAL TYPES
+*-----------------------------------------------------------------
+      READ(5,*) NUMMAT
+      READ(5,*) (ISOT(I),I=1,NUMMAT)
+      WRITE(8,22) NUMMAT
+      WRITE(8,20) (I,ISOT(I),I=1,NUMMAT)	      
+      DO 100 I=1,NUMMAT
+*-----------------------------------------------------------------
+*      IF ISOTROPIC MATERIAL, INPUT E, POISSON'S RATIO, THERMAL
+*      EXPANSION COEFFICIENT, BODY FORCE IN R-DIRECTION, BODY FORCE
+*	   IN Z-dIRECTION (UNIT WEIGHT)!... 
+*-----------------------------------------------------------------
+      IF(ISOT(I).EQ.1) GO TO 500
+      READ(5,998) LAYNAME(I)
+  998 FORMAT(A20)
+      READ(5,*) EM(I), PR(I), ALPHA(I), BODYFR(I), BODYFZ(I)                   
+      WRITE(8,23) LAYNAME(I),I,EM(I), PR(I), ALPHA(I), BODYFR(I),
+     +            BODYFZ(I)
+      IF(PR(I).EQ.0.5) PR(I)=0.499
+*--------------------------------------------------------------      
+*      IF ANISOTROPIC MATERIAL, INPUT Evert, G, PRhor, PRvert, 
+*	   MODULI RATIOS n (hor/vert) and m (shear/vert), THERMAL 
+*	   EXPANSION COEFFICIENT,BODY FORCE IN R-DIRECTION, BODY 
+*	   FORCE IN Z-dIRECTION (UNIT WEIGHT)!...      
+*--------------------------------------------------------------      
+  500 IF(ISOT(I).EQ.1) THEN
+      READ(5,998) LAYNAME(I)
+      READ(5,*) E2(I),G2(I),PR1(I),PR2(I),RATION(I),RATIOM(I),ALPHA(I),
+     +          BODYFR(I),BODYFZ(I)
+      WRITE(8,24) LAYNAME(I),I,E2(I),G2(I),PR1(I),PR2(I),RATION(I),
+     +            RATIOM(I),ALPHA(I),BODYFR(I),BODYFZ(I)
+      IF(PR1(I).EQ.0.5) PR1(I)=0.499
+      IF(PR2(I).EQ.0.5) PR2(I)=0.499
+      END IF             
+  100 CONTINUE               
+*---------------------------------------------------                          
+*      	INPUT DATA FOR AUTOMATIC MESH GENERATION... 
+*		NLAY: TOTAL NUMBER OF LAYERS USED IN MESH GENERATION
+*		NCOL: TOTAL NUMBER OF COLUMNS USED IN MESH GENERATION
+*		NUMOPT: MESH GENERATION OPTION [horizontal=0; vertical=1]
+*		RINIT: INITIAL R-COORDINATES OF THE FIRST NODAL POINT
+*		ZINIT: INITIAL Z-COORDINATES OF THE FIRST NODAL POINT
+*---------------------------------------------------                           
+      READ(5,*) NLAY,NCOL,NUMOPT,RINIT,ZINIT
+      READ(5,*) (SPLAY(I),I=1,NLAY)
+      READ(5,*) (COLSP(I),I=1,NCOL)
+      NNODER=2*NCOL+1
+      NNODEZ=2*NLAY+1
+***********************************************************************
+*	CALL MESHGR FOR NODE NUMBERING AND ELEMENT MESH GENERATION
+***********************************************************************
+      CALL MESHGR(NUMOPT,NLAY,NCOL,SPLAY,COLSP,R,Z,NPT,NEL,
+     +            NNODER,NNODEZ,KQ,RINIT,ZINIT,NELRES)
+***********************************************************************        
+*------------------------------------------------------------------
+*	INPUT ELEMENT MATERIAL TYPES & INTERFACE ELEMENTS IF ANY...
+*	MATTYP	 : MATERIAL TYPE
+*	MATID( ) : MATERIAL IDENTIFICATION ARRAY
+*	MSTART	 : STARTING NODE NUMBER FOR MAT'L. PROPERTY ASSIGNMENT
+*	MSTOP 	 : ENDING NODE NUMBER FOR MAT'L. PROPERTY ASSIGNMENT
+*	NINTEL   : NUMBER OF INTERFACE ELEMENTS @ THE LOAD CENTERLINE
+*	INTELM( ): INTERFACE ELEMENTS @ THE LOAD CENTERLINE  
+*------------------------------------------------------------------
+      DO 230 I= 1,400
+      READ(5,*) MSTART, MSTOP, MATTYP
+      IF(MSTART.EQ.0) GOTO 239      
+      DO 235 J= MSTART, MSTOP
+      MATID(J) = MATTYP
+  235 CONTINUE
+  230 CONTINUE
+  239 CONTINUE
+      READ(5,*) NINTEL
+      IF(NINTEL.NE.0.AND.NINTEL.NE.NUMEL) THEN
+      READ(5,*) (INTELM(I),I=1,NINTEL)  
+      END IF
+*---------------------------------------------------------------------
+*   PRINT LAYER & COLUMN SPACINGS; ELEMENT INCIDENCES & MATERIAL TYPES
+*---------------------------------------------------------------------
+      WRITE(8,5)NLAY,NCOL,NUMOPT,RINIT,ZINIT 
+      WRITE(8,6)
+      WRITE(8,8) (SPLAY(I), I=1,NLAY)
+      WRITE(8,7)
+      WRITE(8,8) (COLSP(I), I=1,NCOL)
+      WRITE(8,27)                                                          
+      DO  220  M = 1, NUMEL
+        WRITE(8,29) NEL(M), MATID (M), (KQ(I,M),I = 1, NODES)         
+        DO  215 J = 1, NODES                                              
+          K = KQ(J,M)                                                       
+          RQ(J,M) = R(K)                                                    
+          ZQ(J,M) = Z(K)                                                   
+  215   CONTINUE                                                          
+  220 CONTINUE
+*---------------------------------------------------
+*       INPUT TEMPERATURE LOADING IF THERE IS ANY...
+*		ICONST   : CONSTANT TEMPERATURE FIELD INDICATOR ('1' OR '0')
+*       ITEMP	 : TEMPERATURE LOAD INDICATOR ('1' OR '0')
+* 		NDT( )	 : NODE NUMBER WITH TEMPERATURE INCREASE
+*		DT( )	 : TEMPERATURE INCREASE AT NODE
+*---------------------------------------------------
+      READ(5,*) ITEMP,ICONST
+      WRITE(8,31) ITEMP
+      IF(ITEMP.EQ.0) GO TO 249
+      IF(ICONST.EQ.1) THEN
+        READ(5,*) DT(1)
+	NDT(1)=1
+        DO 241 I=2, NUPTS
+        DT(I)= DT(1)
+	NDT(I)= NDT(I-1)+1
+  241   CONTINUE
+        GO TO 243
+      END IF
+      DO 242 I=1, NUPTS
+        READ(5,*) NDT(I), DT(I)
+  242 CONTINUE
+  243 WRITE(8,32)    
+      DO 244 I=1, NUPTS
+        WRITE(8,33) NDT(I), DT(I)
+  244 CONTINUE
+*------- SPECIFY INITIAL STRAINS (R, THETA, AND Z)
+      DO 245 M=1, NUMEL 
+        DO 245 J=1, NODES
+	  K= KQ(J,M)
+	  II=MATID(M)
+	  EQR0(J,M)= ALPHA(II)*DT(K)
+	  EQTH0(J,M)= ALPHA(II)*DT(K)
+	  EQZ0(J,M)= ALPHA(II)*DT(K)
+  245 CONTINUE
+  249 CONTINUE
+*---------------------------
+*       INPUT EDGE LOADS !..
+*       NEDGE	 : NUMBER OF ELEMENTS WITH EDGE LOAD
+*		IEDGE( ) : ELEMENT NUMBER ARRAY WITH EDGE LOAD
+*---------------------------
+      READ(5,*) NEDGE
+      WRITE(8,45) NEDGE
+      DO 246 I=1, NEDGE  
+      READ(5,*) IEDGE(I)
+      READ(5,*) (ELOAD(J,IEDGE(I)),J=1,8)
+      WRITE(8,46) IEDGE(I)
+      WRITE(8,47) (ELOAD(J,IEDGE(I)),J=1,8)
+  246 CONTINUE    
+*----------------------------------------------------------------------
+*	INPUT HORIZONTAL RESIDUAL STRESSES @ EACH ROW IN BASE/SUBBASE..
+*	NUMRES	 : NUMBER OF ELEMENTS WITH RESIDUAL STRESSES
+*	LRES	 : ELEMENT NUMBER
+*	RESVAL   : RESIDUAL STRESS VALUE IN PSI
+*----------------------------------------------------------------------
+*-------- INITIALIZE SRES !..
+      DO 248 LL=1, NUMEL
+        DO 248 L=1, 4
+	  SRES(L,LL)=0.
+  248 CONTINUE
+*--------
+      READ(5,*) NUMRES
+      WRITE(8,55) NUMRES
+      IF(NUMRES.EQ.0) GO TO 251
+      DO 250 I=1, NUMRES
+        READ(5,*) LRES, RESVAL
+	WRITE(8,56) LRES, RESVAL
+************************************************************************
+*   IF ANY KNOWN HOR. RES. STRESSES, CALL RESIDUAL STRESS SUBROUTINE !..
+************************************************************************
+        CALL RESIDUE(NELRES,LRES,RESVAL,NLAY,NCOL,MATID,ZQ,NUMOPT,SRES)
+  250 CONTINUE
+  251 CONTINUE	
+*
+*-----------------------------------------------------------------------
+*      	INPUT SPECIFIED BOUNDARY DISPLACEMENTS  
+*		NUBPTS	 : NUMBER OF BOUNDARY NODES
+*		IBD(,)	 : CONTAINS BOUNDARY CONDITIONS
+*		BVAL(,)	 : CONTAINS SPECIFIED DISPLACEMENTS
+*-----------------------------------------------------------------------
+      WRITE(8,35)                                                          
+      DO  260  N = 1, NUBPTS                                          
+      READ(5,*) ( IBD(N,K),K=1,NFP1 ), ( BVAL(N,K),K=1,NDFRE )          
+      WRITE(8,34) ( IBD(N,K),K=1,NFP1 ), ( BVAL(N,K),K=1,NDFRE )         
+  260 CONTINUE                                                          
+*-----------------------------------------------------------------------
+*      	INPUT NUM OF LOADED POINTS AND NODAL POINT LOADS    
+*		NLPTS	 : NUMBER OF LOADED POINTS
+*		LJOI( )	 : NODES WITH APPLIED JOINT LOADS
+*----------------------------------------------------------------------- 
+      READ(5,*) NLPTS                                                   
+      WRITE(8,36) NLPTS                                                   
+      IF (NLPTS.EQ.0) GOTO 351
+      WRITE(8,39)
+      DO 350 J=1, NLPTS
+      READ(5,*) LJOI(J), (RI(J,K), K = 1, NDFRE )                          
+      WRITE(8,41) LJOI(J), (RI(J,K), K = 1, NDFRE )                          
+  350 CONTINUE                                                                
+  351 CONTINUE
+
+*------     
+***********************************************************************
+*	 OUTPUT FILE DESIGN (Formats..)
+***********************************************************************
+    1 FORMAT(1H1)
+    2 FORMAT(///)                                                    
+    5 FORMAT(//,5X,'TOTAL NUM OF LAYERS USED IN MESH GENERATION:',2X,
+     +I5,//,5X,'TOTAL NUM OF COLUMNS USED IN MESH GENERATION:',1X,I5,
+     +//,5X,'NUMBERING OPTION [HORIZONTAL=0; VERTICAL=1]:',2X,I2,//,5X,
+     +'INITIAL R-COORDINATES OF THE FIRST NODE:',2X,F8.3,/,5X,
+     +'INITIAL Z-COORDINATES OF THE FIRST NODE:',2X,F8.3,/)
+    6 FORMAT(//,5X,'ELEMENT MESH LAYER THICKNESSES (bottom to top):')
+    7 FORMAT(//,5X,'ELEMENT MESH COLUMN WIDTHS (left to right):')
+    8 FORMAT(/,6(3X,F8.3))
+   21 FORMAT(//, 35H     NUM OF ELEMENTS                       ,I5 ,/,  
+     +           35H     NUM OF POINTS                         ,I5, /,   
+     +           35H     NUM OF BOUNDARY POINTS                ,I5, ///, 
+     +           35H     NUM OF ELEM DEG OF FREEDOM            ,I5, /,   
+     +           35H     NUM OF ELEM NODES                     ,I5, /)
+   22 FORMAT(//, 35H     MATERIAL PROPERTIES                      ,//,
+     +           35H     NUM OF MATERIAL TYPES                 ,I5,//,
+     +    	 50H     MATERIAL    TYPE [isotropic:0, anisotropic:1])
+   20 FORMAT(8X,I2,7X,I2)
+   23 FORMAT(//, 11H     LAYER:,A20,/,
+     +           25H     MATERIAL TYPE       ,I2,//,
+     +           35H     MOD OF ELASTICITY                     ,E12.5,/,
+     +           35H     POISSON RATIO                         ,E12.5,/,
+     +           35H     COEFF. OF THERMAL EXPANSION           ,E12.5,/,
+     +           35H     BODYFORCE IN R DIRECTION              ,E12.5,/,
+     +           35H     BODYFORCE IN Z DIRECTION              ,E12.5,/)
+   24 FORMAT(//, 11H     LAYER:,A20,/,
+     +           25H     MATERIAL TYPE       ,I2,//,
+     +           40H     ELASTIC MODULUS (E2, vertical)        ,E12.5,/,
+     +           40H     SHEAR MODULUS (G2, vertical)          ,E12.5,/,
+     +           40H     POISSON RATIO (PR1, radial)           ,E12.5,/,
+     +           40H     POISSON RATIO (PR2, vertical)         ,E12.5,/,
+     +           40H     RATIO N (E1/E2)                       ,E12.5,/,
+     +           40H     RATIO M (G2/E2)                       ,E12.5,/,
+     +           40H     COEFF. OF THERMAL EXPANSION           ,E12.5,/,
+     +           40H     BODYFORCE IN R DIRECTION              ,E12.5,/,
+     +           40H     BODYFORCE IN Z DIRECTION              ,E12.5,/)
+   27 FORMAT(//,10X,' 4----7----3', 
+     +        /,10X,' |         |',
+     +        /,10X,' 8         6',
+     +        /,10X,' |         |',
+     +        /,10X,' 1----5----2',//,
+     +           5X,' ELEMENT',7X,'MATERIAL TYPE',
+     +              7X,' ELEM NODES (1,2,3,4,5,6,7,8)',/)
+   29 FORMAT(7X,I4,10X,I5,12X,8I5)
+   30 FORMAT(//, 45H     UNITS POUNDS INCH RADIANS FAHRENHEIT      ,/)
+   31 FORMAT(//,6X,'TEMPERATURE LOAD : ',I1,//)
+   32 FORMAT(9X,'NODE',3X,'TEMPERATURE INCREASE, (DT)',/)
+   33 FORMAT(10X,I3,10X,F8.2)
+   45 FORMAT(///,6X,'NUMBER OF ELEMENTS WITH EDGE LOADS :',I3)
+   46 FORMAT(//,6X,'ELEMENT NUMBER :',I3,/,37X,'UNIFORM LOADS',/)
+   47 FORMAT(12X,'EDGE 1',13X,'EDGE 2',13X,'EDGE 3',13X,'EDGE 4',//,
+     +       6X,'R - DIR',2X,'Z - DIR',3(3X,'R - DIR',2X,'Z - DIR'),//,
+     +       6X,F7.2,2X,F7.2,3(3X,F7.2,2X,F7.2))
+   34 FORMAT(5X,3I8,2X,E15.3,3X,E15.3)                           
+   35 FORMAT(///,40H      BOUNDARY CONDITIONS,                ,//        
+     +     5X,   45H     NODE    R-DIR   Z-DIR       R-VALUE      ,      
+     +           20H      Z-VALUE            ,// )                      
+   36 FORMAT(//, 35H     NUM OF NODES WITH JOINT LOADS  ,I5, /  ) 
+   39 FORMAT(//, 49H     APPLIED LOADS (to be multiplied by "2*pi")  ,//    
+     +     3X,   45H     NODE        R-DIRECTION    Z-DIRECTION  ,// )  
+   41 FORMAT( 5X, I5, 5X, 2E15.3 )                                             
+   55 FORMAT(///,50H     NO. OF ROWS OF ELEMENTS IN BASE/SUBBASE       ,
+     +         /,50H     WITH MEASURED HORIZONTAL RESIDUAL STRESSES:
+     +          ,I2)
+   56 FORMAT(/,5X,'ROW ELEMENT NO:',I3,5X,'HORIZONTAL RESIDUAL STRESS:'
+     +           ,F7.2) 
+***********************************************************************
+      RETURN
+      END

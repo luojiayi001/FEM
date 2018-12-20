@@ -1,0 +1,17 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=47 Y=213 Scale=0.74 Orient Portrait
+$!ReadColorMap Figure6.map
+$!ReadDataFile HD1_data.PLT
+$!ReadStyleSheet Figure6.s01
+$!ActivateGraphics
+$!RegenAll

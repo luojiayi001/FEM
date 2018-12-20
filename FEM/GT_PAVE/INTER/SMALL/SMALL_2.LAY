@@ -1,0 +1,31 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=0 Y=0 Scale=1.2 Orient Portrait
+$!ReadColorMap SMALL_2.map
+$!ReadDataFile small_1.plt
+$!ReadStyleSheet SMALL_2.s01
+$!OpenWindow
+$!ReadDataFile small_1.plt
+$!ReadStyleSheet SMALL_2.s02
+$!OpenWindow
+$!ReadDataFile small_1.plt
+$!ReadStyleSheet SMALL_2.s03
+$!OpenWindow
+$!ReadDataFile small_1.plt
+$!ReadStyleSheet SMALL_2.s04
+$!OpenWindow
+$!ReadStyleSheet SMALL_2.s05
+$!OpenWindow
+$!ReadDataFile small_1.plt
+$!ReadStyleSheet SMALL_2.s06
+$!ActivateGraphics
+$!RegenAll

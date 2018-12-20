@@ -1,0 +1,205 @@
+\hypertarget{class_mesh}{}\section{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_a2af137f1571af89172b9c102302c416b}\label{class_mesh_a2af137f1571af89172b9c102302c416b}} 
+\mbox{\hyperlink{class_mesh_a2af137f1571af89172b9c102302c416b}{Mesh}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_mesh}{Mesh}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mesh_af9ff79e2003cfde74b16266cd8113acf}{Mesh}} (std\+::string const \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Custom constructor to create a mesh with given file name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}\label{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}} 
+\mbox{\hyperlink{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}{$\sim$\+Mesh}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_mesh}{Mesh}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_a519813e103dbb3fb1739a2c40b3e1153}{read\+From\+File}} (std\+::string const \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Read in all the information and build the mesh. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_mesh_a6a535f67f00ed39f945aaa1e8039a277}{node\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Get the total number of the nodes. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_mesh_aa1b2aafa40bd4b335e9bf6306e482881}{element\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Get the total number of the elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$const \mbox{\hyperlink{class_mesh_a071a8dfe15c00fcabc9c4071306487d4}{get\+Node}} (const int \&index) const
+\begin{DoxyCompactList}\small\item\em Get the node at given zero-\/based index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_element}{Element}} $\ast$const \mbox{\hyperlink{class_mesh_ada2ae7b8640a3999780d7e738ee4154e}{get\+Element}} (const int \&index) const
+\begin{DoxyCompactList}\small\item\em Get the element at given zero-\/based index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$$\ast$const \mbox{\hyperlink{class_mesh_ae596a597115563fb308d99e5e15a62e6}{node\+Array}} () const
+\begin{DoxyCompactList}\small\item\em Get the node array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_element}{Element}} $\ast$$\ast$const \mbox{\hyperlink{class_mesh_a042cc2ef19b7090f830b915721818181}{element\+Array}} () const
+\begin{DoxyCompactList}\small\item\em Get the element array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_acc363bc0df381350540ed9d56ba3b35b}\label{class_mesh_acc363bc0df381350540ed9d56ba3b35b}} 
+std\+::vector$<$ \mbox{\hyperlink{class_material}{Material}} $\ast$ $>$ \mbox{\hyperlink{class_mesh_acc363bc0df381350540ed9d56ba3b35b}{material\+List}}
+\begin{DoxyCompactList}\small\item\em A list of layered materials. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_mesh_a5a1c5739ef85c8f9071f689e790b5251}{boundary\+Node\+List}}
+\begin{DoxyCompactList}\small\item\em A list of the degree of freedom that are at boundary. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_ab331f3e3efeb2934c202b07db8a6c1a5}\label{class_mesh_ab331f3e3efeb2934c202b07db8a6c1a5}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_mesh_ab331f3e3efeb2934c202b07db8a6c1a5}{boundary\+Value}}
+\begin{DoxyCompactList}\small\item\em The boundary values corresponding to the D\+OF list above. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_ad54254084b97877bb4d0f9d9d9cbb380}\label{class_mesh_ad54254084b97877bb4d0f9d9d9cbb380}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_mesh_ad54254084b97877bb4d0f9d9d9cbb380}{load\+Node\+List}}
+\begin{DoxyCompactList}\small\item\em A D\+OF list (see above) of the node with applied load. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a688adb457f52ffa939f53f22afae697e}\label{class_mesh_a688adb457f52ffa939f53f22afae697e}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_mesh_a688adb457f52ffa939f53f22afae697e}{load\+Value}}
+\begin{DoxyCompactList}\small\item\em The load values at the node. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a233cbdf434a8afb904b97ad803ae6daf}\label{class_mesh_a233cbdf434a8afb904b97ad803ae6daf}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_mesh_a233cbdf434a8afb904b97ad803ae6daf}{load\+Element\+List}}
+\begin{DoxyCompactList}\small\item\em A list of the elements with applied edge load. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a918281e8de6ff4f38e017c99a55fd8bf}\label{class_mesh_a918281e8de6ff4f38e017c99a55fd8bf}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_mesh_a918281e8de6ff4f38e017c99a55fd8bf}{load\+Edge\+List}}
+\begin{DoxyCompactList}\small\item\em A list of loaded edges in each element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_aa94755c6ec3631b14f93a1ca48c5d366}\label{class_mesh_aa94755c6ec3631b14f93a1ca48c5d366}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_mesh_aa94755c6ec3631b14f93a1ca48c5d366}{edge\+Load\+Value}}
+\begin{DoxyCompactList}\small\item\em A list of the edge load values for each element above. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a10891b16424fd1015868d2ef9a2c9311}\label{class_mesh_a10891b16424fd1015868d2ef9a2c9311}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_mesh_a10891b16424fd1015868d2ef9a2c9311}{body\+Force}}
+\begin{DoxyCompactList}\small\item\em The universal body force. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mesh_af9ff79e2003cfde74b16266cd8113acf}\label{class_mesh_af9ff79e2003cfde74b16266cd8113acf}} 
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Custom constructor to create a mesh with given file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The path to the input file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mesh_a042cc2ef19b7090f830b915721818181}\label{class_mesh_a042cc2ef19b7090f830b915721818181}} 
+\index{Mesh@{Mesh}!element\+Array@{element\+Array}}
+\index{element\+Array@{element\+Array}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{element\+Array()}{elementArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_element}{Element}} $\ast$$\ast$const Mesh\+::element\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the element array. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the element pool.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+There are two ways to query a node/element\+: mesh.\+node\+Array()\mbox{[}i\mbox{]} OR mesh.\+get\+Node(i) 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_mesh_aa1b2aafa40bd4b335e9bf6306e482881}\label{class_mesh_aa1b2aafa40bd4b335e9bf6306e482881}} 
+\index{Mesh@{Mesh}!element\+Count@{element\+Count}}
+\index{element\+Count@{element\+Count}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{element\+Count()}{elementCount()}}
+{\footnotesize\ttfamily const int \& Mesh\+::element\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the total number of the elements. 
+
+\begin{DoxyReturn}{Returns}
+The total number of the elements. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_ada2ae7b8640a3999780d7e738ee4154e}\label{class_mesh_ada2ae7b8640a3999780d7e738ee4154e}} 
+\index{Mesh@{Mesh}!get\+Element@{get\+Element}}
+\index{get\+Element@{get\+Element}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{get\+Element()}{getElement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_element}{Element}} $\ast$const Mesh\+::get\+Element (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Get the element at given zero-\/based index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index for query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the element being queried. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a071a8dfe15c00fcabc9c4071306487d4}\label{class_mesh_a071a8dfe15c00fcabc9c4071306487d4}} 
+\index{Mesh@{Mesh}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{get\+Node()}{getNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$const Mesh\+::get\+Node (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Get the node at given zero-\/based index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index for query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the node being queried. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_ae596a597115563fb308d99e5e15a62e6}\label{class_mesh_ae596a597115563fb308d99e5e15a62e6}} 
+\index{Mesh@{Mesh}!node\+Array@{node\+Array}}
+\index{node\+Array@{node\+Array}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{node\+Array()}{nodeArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$$\ast$const Mesh\+::node\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the node array. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the node pool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a6a535f67f00ed39f945aaa1e8039a277}\label{class_mesh_a6a535f67f00ed39f945aaa1e8039a277}} 
+\index{Mesh@{Mesh}!node\+Count@{node\+Count}}
+\index{node\+Count@{node\+Count}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{node\+Count()}{nodeCount()}}
+{\footnotesize\ttfamily const int \& Mesh\+::node\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the total number of the nodes. 
+
+\begin{DoxyReturn}{Returns}
+The total number of the nodes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a519813e103dbb3fb1739a2c40b3e1153}\label{class_mesh_a519813e103dbb3fb1739a2c40b3e1153}} 
+\index{Mesh@{Mesh}!read\+From\+File@{read\+From\+File}}
+\index{read\+From\+File@{read\+From\+File}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{read\+From\+File()}{readFromFile()}}
+{\footnotesize\ttfamily void Mesh\+::read\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Read in all the information and build the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The path to the input file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_mesh_a5a1c5739ef85c8f9071f689e790b5251}\label{class_mesh_a5a1c5739ef85c8f9071f689e790b5251}} 
+\index{Mesh@{Mesh}!boundary\+Node\+List@{boundary\+Node\+List}}
+\index{boundary\+Node\+List@{boundary\+Node\+List}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{boundary\+Node\+List}{boundaryNodeList}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Mesh\+::boundary\+Node\+List}
+
+
+
+A list of the degree of freedom that are at boundary. 
+
+\begin{DoxyNote}{Note}
+Actually this is not N\+O\+DE list, but degree of freedom list, e.\+g., if node 1,2 are X\&Y fixed, node 4 is x fixed, then the D\+OF list is (2,3 $\vert$ 4,5 $\vert$ 8) and the boundary value list below is (0,0,0,0,0). 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_mesh_8h}{Mesh.\+h}}\item 
+\mbox{\hyperlink{_mesh_8cpp}{Mesh.\+cpp}}\end{DoxyCompactItemize}

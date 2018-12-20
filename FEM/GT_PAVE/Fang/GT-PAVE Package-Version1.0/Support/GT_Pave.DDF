@@ -1,0 +1,40 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="GT_Pave.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"GT_Pave.exe"
+"MSVBVM60.DLL"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"COMCT232.OCX"
+"COMDLG32.OCX"
+"RICHTX32.OCX"
+"RICHED32.DLL"
+"MSRDO20.DLL"
+"RDOCURS.DLL"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"
+"800-VB.exe"
+"example.dat"
+"example.in"
+"example.out"
+"b777.dat"
+"B777.IN"
+"b777.out"
+"B777-3res.dat"
+"B777-3res.in"
+"B777-3res.out"

@@ -1,0 +1,17 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=0 Y=0 Scale=1.2 Orient Portrait
+$!ReadColorMap stag_z.map
+$!ReadDataFile STAG140A.PLT
+$!ReadStyleSheet stag_z.s01
+$!ActivateGraphics
+$!RegenAll

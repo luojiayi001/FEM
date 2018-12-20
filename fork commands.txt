@@ -1,0 +1,22 @@
+# Fork from github
+
+# git clone the forked repo
+git clone https://github.com/luojiayi001/git.git
+
+# add upstream master
+git remote add upstream https://github.com/symphonylyh/git.git
+
+# Update and push freely locally on the forked repo
+
+# When you want updates from origin master
+git fetch upstream
+git checkout master
+git merge upstream/master
+
+# When you want origin master to receive the updates
+git checkout filename
+git rebase master
+git checkout 
+git rebase -i master
+
+# Go to git website to pull new request

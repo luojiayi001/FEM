@@ -1,0 +1,20 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=0 Y=0 Scale=1.2 Orient Portrait
+$!ReadColorMap sigr12_2.map
+$!ReadDataFile gt2c12.plt
+$!ReadStyleSheet sigr12_2.s01
+$!OpenWindow
+$!ReadDataFile gt2c12.plt
+$!ReadStyleSheet sigr12_2.s02
+$!ActivateGraphics
+$!RegenAll

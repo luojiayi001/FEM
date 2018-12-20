@@ -1,0 +1,109 @@
+// -------------------------------------------------------
+// Summary information:
+// Total number of nodes
+// Total number of elements
+// Total number of different property combinations these elements should be assigned to
+// Total number of point loads in X-direction
+// Total number of point loads in Y-direction
+// Total number of edge loads
+// Total number of displacement constraints in X-direction
+// Total number of displacement constraints in Y-direction
+40 9 2 0 3 1 19 7 
+// -------------------------------------------------------
+// Node (r,z) coordinates:
+0 0
+3 0
+6 0
+9 0
+12 0
+15 0
+18 0
+0 3
+6 3
+12 3
+18 3
+0 6
+3 6
+6 6
+9 6
+12 6
+15 6
+18 6
+0 9
+6 9
+12 9
+18 9
+0 12
+3 12
+6 12
+9 12
+12 12
+15 12
+18 12
+0 15
+6 15
+12 15
+18 15
+0 18
+3 18
+6 18
+9 18
+12 18
+15 18
+18 18
+// -------------------------------------------------------
+// Layer properties:
+// Line 1: Element index (start, end) to assign material property. And layer features: isotropic(0)-anisotropic(1) linear(0)-nonlinear(1) normal(0)-no tension modification(1)
+// Line 2: The assigned layer property values (Modulus, Poisson's ratio, body force (r,z), thermal coefficient, temperature change)
+// if cross-anisotropic, (Horizontal Modulus, Vertical Modulus, Horizontal Poisson's ratio, Vertical Poisson's ratio, Shear Modulus, body force (r,z), thermal coeff, temperature change)
+0 4 1 1 1
+30000 0.3 0 -0.0807 6.5e-6 100
+5 8 0 0 0
+20000 0.2 0 -0.0856 6.5e-6 100
+// -------------------------------------------------------
+// Indexed element's node:
+8 0 2 13 11 1 8 12 7
+8 2 4 15 13 3 9 14 8
+8 4 6 17 15 5 10 16 9
+8 11 13 24 22 12 19 23 18
+8 13 15 26 24 14 20 25 19
+8 15 17 28 26 16 21 27 20
+8 22 24 35 33 23 30 34 29
+8 24 26 37 35 25 31 36 30
+8 26 28 39 37 27 32 38 31
+// -------------------------------------------------------
+// Node index to assign X-direction load (void in this case)
+
+// Magnitude of X-direction load (void in this case)
+
+// -------------------------------------------------------
+// Node index to assign Y-direction load
+33 34 35
+// Magnitude of Y-direction load
+-30 -30 -30
+// -------------------------------------------------------
+// Element index to assign edge load and edge numbers (e.g., assign to edge 2 and 3 (note the zero-based index!)of element No.6)
+36 2
+0 -15
+37 2
+0 -15
+38 2
+0 -15
+39 2
+0 -15
+
+6 1 2
+// Magnitude of edge load in X and Y direction (according to number of edges in the line above, 2 edges then 4 load components, 3 edges then 6 load components)
+0 0 0 -15
+// -------------------------------------------------------
+// Node index to assign X-direction boundary condition
+0 1 2 3 4 5 6 7 11 18 22 29 33 10 17 21 28 32 39
+// X-direction boundary value
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+// -------------------------------------------------------
+// Node index to assign Y-direction boundary condition
+0 1 2 3 4 5 6
+// Y-direction boundary value
+0 0 0 0 0 0 0
+
+  

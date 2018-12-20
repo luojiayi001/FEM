@@ -1,0 +1,5 @@
+242 T6TC elements
+532 nodes
+
+L2 norm 	 0.2502444267192751  
+H1 semi-norm 	 2.1011282585986288 

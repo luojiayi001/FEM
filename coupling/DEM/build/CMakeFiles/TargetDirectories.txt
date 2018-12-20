@@ -1,0 +1,8 @@
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/CMakeFiles/rebuild_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/CMakeFiles/edit_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/CMakeFiles/rebuild_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/CMakeFiles/edit_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/CMakeFiles/main.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/testing/CMakeFiles/rebuild_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/testing/CMakeFiles/edit_cache.dir
+/Users/HHH/Desktop/CS241/cs241git/DEM/build/src/testing/CMakeFiles/testing.dir

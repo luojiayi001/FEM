@@ -1,0 +1,23 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=0 Y=0 Scale=1.2 Orient Portrait
+$!ReadColorMap 140NL_RZ.map
+$!ReadDataFile 140a_nl.plt
+$!ReadStyleSheet 140NL_RZ.s01
+$!OpenWindow
+$!ReadDataFile 140a_nl.plt
+$!ReadStyleSheet 140NL_RZ.s02
+$!OpenWindow
+$!ReadDataFile 140a_nl.plt
+$!ReadStyleSheet 140NL_RZ.s03
+$!ActivateGraphics
+$!RegenAll

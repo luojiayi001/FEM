@@ -1,0 +1,408 @@
+\hypertarget{class_element}{}\section{Element Class Reference}
+\label{class_element}\index{Element@{Element}}
+Inheritance diagram for Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_element}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_element_1_1static_members}{static\+Members}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_element_ab0d0e20be9a36ae676202db753faeec9}\label{class_element_ab0d0e20be9a36ae676202db753faeec9}} 
+\mbox{\hyperlink{class_element_ab0d0e20be9a36ae676202db753faeec9}{Element}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_element}{Element}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_element_aed93d541257fa2ddd3cd2202fec48bb4}{Element}} (const int \&index, const std\+::vector$<$ int $>$ \&node\+List, \mbox{\hyperlink{class_node}{Node}} $\ast$$\ast$const mesh\+Node, \mbox{\hyperlink{class_material}{Material}} $\ast$const material)
+\begin{DoxyCompactList}\small\item\em Custom constructor to create an element with given node indices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a68700ab3d0e5551cb456e91c3a8fc61b}\label{class_element_a68700ab3d0e5551cb456e91c3a8fc61b}} 
+\mbox{\hyperlink{class_element_a68700ab3d0e5551cb456e91c3a8fc61b}{Element}} (\mbox{\hyperlink{class_element}{Element}} const \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a2baffaa8af3b584a906206d0381cd204}\label{class_element_a2baffaa8af3b584a906206d0381cd204}} 
+\mbox{\hyperlink{class_element}{Element}} const  \& \mbox{\hyperlink{class_element_a2baffaa8af3b584a906206d0381cd204}{operator=}} (\mbox{\hyperlink{class_element}{Element}} const \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_element_a13d54ba9c08b6bec651402f1c2bb002c}{$\sim$\+Element}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_shape}{Shape}} $\ast$const \mbox{\hyperlink{class_element_aadc36f89fa5f11da7e74d6528ecdcacc}{shape}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the shape of this element. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_element_a24c9d2dd309a28a8891d6b710a8aa0c9}{local\+Stiffness}} () const
+\begin{DoxyCompactList}\small\item\em Compute the local element stiffness matrix formulated by differentiation of element strain energy and numerical integration (Gaussian quadrature). \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_element_ac9d07ee9676f15296a097ab97fd5ef7e}{nodal\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Get the distributed nodal force from body force and temperature loads. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_element_abd9d11d211f4f5e6f9e213a1013f36ed}{E\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Get the stress-\/strain constitutive matrix of the element. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_element_a990462393dee5227b711ca96a69c5516}{body\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Get the body force (unit weight) of the element. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_element_ae7d89bab030841799347a94856496f79}{thermal\+Strain}} () const
+\begin{DoxyCompactList}\small\item\em Get the thermal strain to be used in the stress computation. \end{DoxyCompactList}\item 
+Matrix\+Xd \mbox{\hyperlink{class_element_ae0c7de742f6835b6ede7d28fa73c7594}{jacobian}} (const Vector2d \&point) const
+\begin{DoxyCompactList}\small\item\em Compute the Jacobian coordinates transformation matrix at an arbitrary point. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_element_abab2c4f446d46785abcdfd17777e80d4}{radius}} (const Vector2d \&point) const
+\begin{DoxyCompactList}\small\item\em Compute the averaged radius R at an arbitrary point. \end{DoxyCompactList}\item 
+Matrix\+Xd \mbox{\hyperlink{class_element_a19f8ba5c4c7569c3bcccf1b422a7dd89}{B\+Matrix}} (const Vector2d \&point) const
+\begin{DoxyCompactList}\small\item\em Compute the strain-\/displacement constitutive matrix at an arbitrary point. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_element_a85dc312253f1d39c29659393fbb1d485}{get\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Get the index of this element. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_element_a0221b246d9ca632136cc39790c46ee8f}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get the size/type of this element. \end{DoxyCompactList}\item 
+const Vector\+Xi \& \mbox{\hyperlink{class_element_a763e0e4a46e68823903557a605dc5474}{get\+Node\+List}} () const
+\begin{DoxyCompactList}\small\item\em Get the list of nodes belong to this element. \end{DoxyCompactList}\item 
+const Matrix\+Xd \& \mbox{\hyperlink{class_element_a4d12b24e62592a1456e04d15872d5240}{get\+Node\+Coord}} () const
+\begin{DoxyCompactList}\small\item\em Get the stacked coordinates matrix of the nodes belong to this element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_element_a72e74815f04f26994013ceef6b089bc0}\label{class_element_a72e74815f04f26994013ceef6b089bc0}} 
+void \mbox{\hyperlink{class_element_a72e74815f04f26994013ceef6b089bc0}{\+\_\+compute\+Stiffness\+And\+Force}} ()
+\begin{DoxyCompactList}\small\item\em Private helper function for the computation of element stiffness matrix and nodal force vector (body force and temperature load). \end{DoxyCompactList}\item 
+Matrix\+Xd \mbox{\hyperlink{class_element_a6995ea43beef7872e1ca864b9cc6e46b}{\+\_\+\+B\+Matrix}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Private helper function for computing the B matrix (the strain-\/displacement transformation matrix, e = D $\ast$ u = D $\ast$ N $\ast$ u = B $\ast$ u) at ith Gaussian point. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_element_a3ac0c5f98e318c8cbd331f1ea06cf43d}{\+\_\+jacobian\+Det}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Private helper function for computing the determinant of Jacobian matrix at ith Gaussian point. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_element_a9bc684fa8143312e39e3ff59e1cc2e32}{\+\_\+radius}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Private helper function for computing the averaged radius R at ith Gaussian point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_abaf9d2954fb21056ab93b3c1b9a3afe2}\label{class_element_abaf9d2954fb21056ab93b3c1b9a3afe2}} 
+void \mbox{\hyperlink{class_element_abaf9d2954fb21056ab93b3c1b9a3afe2}{clear\+\_\+}} ()
+\begin{DoxyCompactList}\small\item\em Private helper function for deleting the current element, used in destructor and assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a51c99ff5c8b23b9de3c82470b84ce3c0}\label{class_element_a51c99ff5c8b23b9de3c82470b84ce3c0}} 
+void \mbox{\hyperlink{class_element_a51c99ff5c8b23b9de3c82470b84ce3c0}{copy\+\_\+}} (\mbox{\hyperlink{class_element}{Element}} const \&other)
+\begin{DoxyCompactList}\small\item\em Private helper function for deep-\/copying the element, used in copy constructor and assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_element_af22d249292d2e1b2efe49ceba7dba753}\label{class_element_af22d249292d2e1b2efe49ceba7dba753}} 
+int \mbox{\hyperlink{class_element_af22d249292d2e1b2efe49ceba7dba753}{index\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Zero-\/based index of the element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a48090b4deb9efc450934223b4a6d503f}\label{class_element_a48090b4deb9efc450934223b4a6d503f}} 
+int \mbox{\hyperlink{class_element_a48090b4deb9efc450934223b4a6d503f}{size\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Size/\+Type of the element, 8 for Q8, 6 for Q6, etc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_ab23e30c8ebb0d3f88812583c2a3b475f}\label{class_element_ab23e30c8ebb0d3f88812583c2a3b475f}} 
+Vector\+Xi \mbox{\hyperlink{class_element_ab23e30c8ebb0d3f88812583c2a3b475f}{node\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The list of the nodes belong to this element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a073425885b45c2c9ad906523afe48674}\label{class_element_a073425885b45c2c9ad906523afe48674}} 
+Matrix\+Xd \mbox{\hyperlink{class_element_a073425885b45c2c9ad906523afe48674}{node\+Coord\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The global coordinates of the nodes belong to this element as a n-\/by-\/2 matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_material}{Material}} $\ast$ \mbox{\hyperlink{class_element_a049b5df45df8a2caec4f51195e7ae7b4}{material\+\_\+}}
+\begin{DoxyCompactList}\small\item\em A pointer to the material class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_aa784e074cb93a9731f279c91f68e6beb}\label{class_element_aa784e074cb93a9731f279c91f68e6beb}} 
+Matrix\+Xd \mbox{\hyperlink{class_element_aa784e074cb93a9731f279c91f68e6beb}{local\+Stiffness\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The 2n-\/by-\/2n local stiffness matrix where n is the number of nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_element_a98da964a6e07b9deb00b170b6d9d954d}\label{class_element_a98da964a6e07b9deb00b170b6d9d954d}} 
+Vector\+Xd \mbox{\hyperlink{class_element_a98da964a6e07b9deb00b170b6d9d954d}{nodal\+Force\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The 2n-\/by-\/1 nodal force vector where n is the number of nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_element_aed93d541257fa2ddd3cd2202fec48bb4}\label{class_element_aed93d541257fa2ddd3cd2202fec48bb4}} 
+\index{Element@{Element}!Element@{Element}}
+\index{Element@{Element}!Element@{Element}}
+\subsubsection{\texorpdfstring{Element()}{Element()}}
+{\footnotesize\ttfamily Element\+::\+Element (\begin{DoxyParamCaption}\item[{const int \&}]{index,  }\item[{const std\+::vector$<$ int $>$ \&}]{node\+List,  }\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$$\ast$const}]{mesh\+Node,  }\item[{\mbox{\hyperlink{class_material}{Material}} $\ast$const}]{material }\end{DoxyParamCaption})}
+
+
+
+Custom constructor to create an element with given node indices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index number of current element. \\
+\hline
+{\em node\+List} & The list of node indices this element is consist of. \\
+\hline
+{\em mesh\+Node} & A const pointer to the node pool of the mesh. \\
+\hline
+{\em material} & A const pointer to the material class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Old version of this function pass in all the nodes, which is expensive. This optimized version only pass in a pointer to access the node pool of the mesh. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_element_a13d54ba9c08b6bec651402f1c2bb002c}\label{class_element_a13d54ba9c08b6bec651402f1c2bb002c}} 
+\index{Element@{Element}!````~Element@{$\sim$\+Element}}
+\index{````~Element@{$\sim$\+Element}!Element@{Element}}
+\subsubsection{\texorpdfstring{$\sim$\+Element()}{~Element()}}
+{\footnotesize\ttfamily Element\+::$\sim$\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+\begin{DoxyNote}{Note}
+As an abstract class, the destructor must be virtual. 
+\end{DoxyNote}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_element_a6995ea43beef7872e1ca864b9cc6e46b}\label{class_element_a6995ea43beef7872e1ca864b9cc6e46b}} 
+\index{Element@{Element}!\+\_\+\+B\+Matrix@{\+\_\+\+B\+Matrix}}
+\index{\+\_\+\+B\+Matrix@{\+\_\+\+B\+Matrix}!Element@{Element}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+Matrix()}{\_BMatrix()}}
+{\footnotesize\ttfamily Matrix\+Xd Element\+::\+\_\+\+B\+Matrix (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Private helper function for computing the B matrix (the strain-\/displacement transformation matrix, e = D $\ast$ u = D $\ast$ N $\ast$ u = B $\ast$ u) at ith Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The Gaussian point where the B matrix to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The B matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a3ac0c5f98e318c8cbd331f1ea06cf43d}\label{class_element_a3ac0c5f98e318c8cbd331f1ea06cf43d}} 
+\index{Element@{Element}!\+\_\+jacobian\+Det@{\+\_\+jacobian\+Det}}
+\index{\+\_\+jacobian\+Det@{\+\_\+jacobian\+Det}!Element@{Element}}
+\subsubsection{\texorpdfstring{\+\_\+jacobian\+Det()}{\_jacobianDet()}}
+{\footnotesize\ttfamily double Element\+::\+\_\+jacobian\+Det (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Private helper function for computing the determinant of Jacobian matrix at ith Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The Gaussian point where the Jacobian matrix to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The determinant of Jacobian matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a9bc684fa8143312e39e3ff59e1cc2e32}\label{class_element_a9bc684fa8143312e39e3ff59e1cc2e32}} 
+\index{Element@{Element}!\+\_\+radius@{\+\_\+radius}}
+\index{\+\_\+radius@{\+\_\+radius}!Element@{Element}}
+\subsubsection{\texorpdfstring{\+\_\+radius()}{\_radius()}}
+{\footnotesize\ttfamily double Element\+::\+\_\+radius (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Private helper function for computing the averaged radius R at ith Gaussian point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The Gaussian point where the radius to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The averaged radius value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a19f8ba5c4c7569c3bcccf1b422a7dd89}\label{class_element_a19f8ba5c4c7569c3bcccf1b422a7dd89}} 
+\index{Element@{Element}!B\+Matrix@{B\+Matrix}}
+\index{B\+Matrix@{B\+Matrix}!Element@{Element}}
+\subsubsection{\texorpdfstring{B\+Matrix()}{BMatrix()}}
+{\footnotesize\ttfamily Matrix\+Xd Element\+::\+B\+Matrix (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Compute the strain-\/displacement constitutive matrix at an arbitrary point. 
+
+e = D$\ast$u = D$\ast$(N$\ast$u) = (D$\ast$N)u = Bu, so B is the differential matrix multiplying the shape function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point where the B matrix to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The 4-\/by-\/2n B matrix where n is the number of nodes belong to this element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a990462393dee5227b711ca96a69c5516}\label{class_element_a990462393dee5227b711ca96a69c5516}} 
+\index{Element@{Element}!body\+Force@{body\+Force}}
+\index{body\+Force@{body\+Force}!Element@{Element}}
+\subsubsection{\texorpdfstring{body\+Force()}{bodyForce()}}
+{\footnotesize\ttfamily const Vector2d \& Element\+::body\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the body force (unit weight) of the element. 
+
+\begin{DoxyReturn}{Returns}
+The 2-\/by-\/1 body force vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_abd9d11d211f4f5e6f9e213a1013f36ed}\label{class_element_abd9d11d211f4f5e6f9e213a1013f36ed}} 
+\index{Element@{Element}!E\+Matrix@{E\+Matrix}}
+\index{E\+Matrix@{E\+Matrix}!Element@{Element}}
+\subsubsection{\texorpdfstring{E\+Matrix()}{EMatrix()}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Element\+::\+E\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the stress-\/strain constitutive matrix of the element. 
+
+\begin{DoxyReturn}{Returns}
+The 4-\/by-\/4 E matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a85dc312253f1d39c29659393fbb1d485}\label{class_element_a85dc312253f1d39c29659393fbb1d485}} 
+\index{Element@{Element}!get\+Index@{get\+Index}}
+\index{get\+Index@{get\+Index}!Element@{Element}}
+\subsubsection{\texorpdfstring{get\+Index()}{getIndex()}}
+{\footnotesize\ttfamily const int \& Element\+::get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the index of this element. 
+
+\begin{DoxyReturn}{Returns}
+The index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a4d12b24e62592a1456e04d15872d5240}\label{class_element_a4d12b24e62592a1456e04d15872d5240}} 
+\index{Element@{Element}!get\+Node\+Coord@{get\+Node\+Coord}}
+\index{get\+Node\+Coord@{get\+Node\+Coord}!Element@{Element}}
+\subsubsection{\texorpdfstring{get\+Node\+Coord()}{getNodeCoord()}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Element\+::get\+Node\+Coord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the stacked coordinates matrix of the nodes belong to this element. 
+
+\begin{DoxyReturn}{Returns}
+The node coordinates as a n-\/by-\/2 matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a763e0e4a46e68823903557a605dc5474}\label{class_element_a763e0e4a46e68823903557a605dc5474}} 
+\index{Element@{Element}!get\+Node\+List@{get\+Node\+List}}
+\index{get\+Node\+List@{get\+Node\+List}!Element@{Element}}
+\subsubsection{\texorpdfstring{get\+Node\+List()}{getNodeList()}}
+{\footnotesize\ttfamily const Vector\+Xi \& Element\+::get\+Node\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the list of nodes belong to this element. 
+
+\begin{DoxyReturn}{Returns}
+The node list as a n-\/by-\/1 vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a0221b246d9ca632136cc39790c46ee8f}\label{class_element_a0221b246d9ca632136cc39790c46ee8f}} 
+\index{Element@{Element}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Element@{Element}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily const int \& Element\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the size/type of this element. 
+
+\begin{DoxyReturn}{Returns}
+The size/type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_ae0c7de742f6835b6ede7d28fa73c7594}\label{class_element_ae0c7de742f6835b6ede7d28fa73c7594}} 
+\index{Element@{Element}!jacobian@{jacobian}}
+\index{jacobian@{jacobian}!Element@{Element}}
+\subsubsection{\texorpdfstring{jacobian()}{jacobian()}}
+{\footnotesize\ttfamily Matrix\+Xd Element\+::jacobian (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Compute the Jacobian coordinates transformation matrix at an arbitrary point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point where the Jacobian matrix to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The 2-\/by-\/2 (2D) Jacobian matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+There are two sets of jacobian, radius, B\+Matrix methods in the class. These ones are for calculating at arbitrary point, therefore they are public method; the other ones calculates at Gaussian points only, which are for the convenience of the formulation of stiffness matrix and force vector. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_element_a24c9d2dd309a28a8891d6b710a8aa0c9}\label{class_element_a24c9d2dd309a28a8891d6b710a8aa0c9}} 
+\index{Element@{Element}!local\+Stiffness@{local\+Stiffness}}
+\index{local\+Stiffness@{local\+Stiffness}!Element@{Element}}
+\subsubsection{\texorpdfstring{local\+Stiffness()}{localStiffness()}}
+{\footnotesize\ttfamily const Matrix\+Xd \& Element\+::local\+Stiffness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Compute the local element stiffness matrix formulated by differentiation of element strain energy and numerical integration (Gaussian quadrature). 
+
+\begin{DoxyReturn}{Returns}
+The 2n-\/by-\/2n element stiffness matrix where n is number of nodes belong to this element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_ac9d07ee9676f15296a097ab97fd5ef7e}\label{class_element_ac9d07ee9676f15296a097ab97fd5ef7e}} 
+\index{Element@{Element}!nodal\+Force@{nodal\+Force}}
+\index{nodal\+Force@{nodal\+Force}!Element@{Element}}
+\subsubsection{\texorpdfstring{nodal\+Force()}{nodalForce()}}
+{\footnotesize\ttfamily const Vector\+Xd \& Element\+::nodal\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the distributed nodal force from body force and temperature loads. 
+
+\begin{DoxyReturn}{Returns}
+The nodal force as a 2n-\/by-\/1 vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_abab2c4f446d46785abcdfd17777e80d4}\label{class_element_abab2c4f446d46785abcdfd17777e80d4}} 
+\index{Element@{Element}!radius@{radius}}
+\index{radius@{radius}!Element@{Element}}
+\subsubsection{\texorpdfstring{radius()}{radius()}}
+{\footnotesize\ttfamily double Element\+::radius (\begin{DoxyParamCaption}\item[{const Vector2d \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Compute the averaged radius R at an arbitrary point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point where the radius to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The averaged radius value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_aadc36f89fa5f11da7e74d6528ecdcacc}\label{class_element_aadc36f89fa5f11da7e74d6528ecdcacc}} 
+\index{Element@{Element}!shape@{shape}}
+\index{shape@{shape}!Element@{Element}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_shape}{Shape}}$\ast$ const Element\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the shape of this element. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the shape object of this element.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+For different element, we would have different shape property, so we return a generic polymorphed \mbox{\hyperlink{class_shape}{Shape}} class pointer to achieve the standardized behavior of our program. It should also be noted that this is the only pure virtual method in \mbox{\hyperlink{class_element}{Element}} class, because the \mbox{\hyperlink{class_shape}{Shape}} property of each element type is stored as a static member of that derived class and cannot be generalized into a inheritable method. This is really an elegant solution to pave our path towards the hybrid element case. Note that we access using \mbox{\hyperlink{class_shape}{Shape}} pointer without storing a \mbox{\hyperlink{class_shape}{Shape}} instance or even a \mbox{\hyperlink{class_shape}{Shape}} pointer in the \mbox{\hyperlink{class_element}{Element}} class, which is also memory efficient for large-\/scale problems. And returning a const pointer secures the usage of \mbox{\hyperlink{class_shape}{Shape}} object. 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{class_element_q8_a1d2c3824da803df5eb9cdd36acf48874}{Element\+Q8}}.
+
+\mbox{\Hypertarget{class_element_ae7d89bab030841799347a94856496f79}\label{class_element_ae7d89bab030841799347a94856496f79}} 
+\index{Element@{Element}!thermal\+Strain@{thermal\+Strain}}
+\index{thermal\+Strain@{thermal\+Strain}!Element@{Element}}
+\subsubsection{\texorpdfstring{thermal\+Strain()}{thermalStrain()}}
+{\footnotesize\ttfamily const Vector\+Xd \& Element\+::thermal\+Strain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the thermal strain to be used in the stress computation. 
+
+\begin{DoxyReturn}{Returns}
+The thermal strain as a 4-\/by-\/1 vector for 2D axisymmetric problem. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_element_a049b5df45df8a2caec4f51195e7ae7b4}\label{class_element_a049b5df45df8a2caec4f51195e7ae7b4}} 
+\index{Element@{Element}!material\+\_\+@{material\+\_\+}}
+\index{material\+\_\+@{material\+\_\+}!Element@{Element}}
+\subsubsection{\texorpdfstring{material\+\_\+}{material\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_material}{Material}}$\ast$ Element\+::material\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A pointer to the material class. 
+
+\mbox{\hyperlink{class_material}{Material}} should not be stored as static member as \mbox{\hyperlink{class_shape}{Shape}} does, because \mbox{\hyperlink{class_shape}{Shape}} is a generic property of a \mbox{\hyperlink{class_element}{Element}} while the \mbox{\hyperlink{class_material}{Material}} can vary among the same element type. In addition, the list of all material is maintained at the \mbox{\hyperlink{class_mesh}{Mesh}} level, so the memory allocation and deallocation is not handled inside \mbox{\hyperlink{class_element}{Element}}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_element_8h}{Element.\+h}}\item 
+\mbox{\hyperlink{_element_8cpp}{Element.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,94 @@
+\hypertarget{class_analysis}{}\section{Analysis Class Reference}
+\label{class_analysis}\index{Analysis@{Analysis}}
+Inheritance diagram for Analysis\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_analysis}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_analysis_a1cf251eb8dc62b30815ab5548ad88f73}\label{class_analysis_a1cf251eb8dc62b30815ab5548ad88f73}} 
+\mbox{\hyperlink{class_analysis_a1cf251eb8dc62b30815ab5548ad88f73}{Analysis}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_analysis}{Analysis}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_analysis_aae14526bb70c6372fd662b46aab74d2d}{Analysis}} (std\+::string const \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Custom constructor to create the mesh from input file for analysis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a172ae0a3cbb68daa373baf081f5c00d9}\label{class_analysis_a172ae0a3cbb68daa373baf081f5c00d9}} 
+virtual \mbox{\hyperlink{class_analysis_a172ae0a3cbb68daa373baf081f5c00d9}{$\sim$\+Analysis}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for abstract class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_afd0f91272761f958cff70fe4671418ea}\label{class_analysis_afd0f91272761f958cff70fe4671418ea}} 
+void \mbox{\hyperlink{class_analysis_afd0f91272761f958cff70fe4671418ea}{assemble\+Stiffness\+And\+Force}} ()
+\begin{DoxyCompactList}\small\item\em Assemble the global stiffness matrix from the local stiffness matrix of each element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_ab1c7b59927d7787ef75b0bba651b045c}\label{class_analysis_ab1c7b59927d7787ef75b0bba651b045c}} 
+void \mbox{\hyperlink{class_analysis_ab1c7b59927d7787ef75b0bba651b045c}{apply\+Force}} ()
+\begin{DoxyCompactList}\small\item\em Apply the load at nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_aec157316b08568c84d8d8344a724ff89}\label{class_analysis_aec157316b08568c84d8d8344a724ff89}} 
+void \mbox{\hyperlink{class_analysis_aec157316b08568c84d8d8344a724ff89}{boundary\+Condition}} ()
+\begin{DoxyCompactList}\small\item\em Designate boundary condition at nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a93e6427625d7441986e8045da772892f}\label{class_analysis_a93e6427625d7441986e8045da772892f}} 
+virtual void \mbox{\hyperlink{class_analysis_a93e6427625d7441986e8045da772892f}{solve\+Disp}} ()=0
+\begin{DoxyCompactList}\small\item\em Solve for nodal displacement using different approaches. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a00c4b54646392d48ea2862ab3987a96d}\label{class_analysis_a00c4b54646392d48ea2862ab3987a96d}} 
+void \mbox{\hyperlink{class_analysis_a00c4b54646392d48ea2862ab3987a96d}{compute\+Strain\+And\+Stress}} ()
+\begin{DoxyCompactList}\small\item\em Compute nodal strain and stress from the extrapolation of results at Gaussian integration points and average the value over the mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a6def63bf2890a4d9fa76c1af350703b8}\label{class_analysis_a6def63bf2890a4d9fa76c1af350703b8}} 
+void \mbox{\hyperlink{class_analysis_a6def63bf2890a4d9fa76c1af350703b8}{print\+Disp}} () const
+\begin{DoxyCompactList}\small\item\em Print the nodal displacement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_ab3087cac038045cc9cc4b8b8e200d16b}\label{class_analysis_ab3087cac038045cc9cc4b8b8e200d16b}} 
+void \mbox{\hyperlink{class_analysis_ab3087cac038045cc9cc4b8b8e200d16b}{print\+Strain}} () const
+\begin{DoxyCompactList}\small\item\em Print the nodal strain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a81a4488de8e18d1c067c94a9edd2ac61}\label{class_analysis_a81a4488de8e18d1c067c94a9edd2ac61}} 
+void \mbox{\hyperlink{class_analysis_a81a4488de8e18d1c067c94a9edd2ac61}{print\+Stress}} () const
+\begin{DoxyCompactList}\small\item\em Print the nodal stress. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a0c17471cdbed978e4c4d62718e7b1578}\label{class_analysis_a0c17471cdbed978e4c4d62718e7b1578}} 
+void \mbox{\hyperlink{class_analysis_a0c17471cdbed978e4c4d62718e7b1578}{write\+To\+File}} (std\+::string const \&file\+Name) const
+\begin{DoxyCompactList}\small\item\em Write the outputs to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a7d3b4ec9e261d56df1c70217bacdd404}\label{class_analysis_a7d3b4ec9e261d56df1c70217bacdd404}} 
+void \mbox{\hyperlink{class_analysis_a7d3b4ec9e261d56df1c70217bacdd404}{write\+To\+V\+TK}} (std\+::string const \&file\+Name) const
+\begin{DoxyCompactList}\small\item\em Write the outputs into a .vtk file for post-\/processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_analysis_a34604f343af1a7d0ee2d19f2a905773b}\label{class_analysis_a34604f343af1a7d0ee2d19f2a905773b}} 
+\mbox{\hyperlink{class_mesh}{Mesh}} \mbox{\hyperlink{class_analysis_a34604f343af1a7d0ee2d19f2a905773b}{mesh}}
+\begin{DoxyCompactList}\small\item\em The mesh information of the problem. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a87256ae6f2ee1d1218b99bf287335fde}\label{class_analysis_a87256ae6f2ee1d1218b99bf287335fde}} 
+Sparse\+Matrix$<$ double $>$ \mbox{\hyperlink{class_analysis_a87256ae6f2ee1d1218b99bf287335fde}{global\+Stiffness}}
+\begin{DoxyCompactList}\small\item\em The global stiffness matrix as a 2n-\/by-\/2n sparse matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a3e2cbd72b96f13d00c8758631c1d6bc9}\label{class_analysis_a3e2cbd72b96f13d00c8758631c1d6bc9}} 
+Vector\+Xd \mbox{\hyperlink{class_analysis_a3e2cbd72b96f13d00c8758631c1d6bc9}{nodal\+Disp}}
+\begin{DoxyCompactList}\small\item\em The nodal displacement 2n-\/by-\/1 vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_aab2110fe7a0fffd9dd738ed9c5f45012}\label{class_analysis_aab2110fe7a0fffd9dd738ed9c5f45012}} 
+Vector\+Xd \mbox{\hyperlink{class_analysis_aab2110fe7a0fffd9dd738ed9c5f45012}{nodal\+Force}}
+\begin{DoxyCompactList}\small\item\em The nodal force 2n-\/by-\/1 vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a9fa4ad52de8cc42341212d09622949c7}\label{class_analysis_a9fa4ad52de8cc42341212d09622949c7}} 
+Matrix\+Xd \mbox{\hyperlink{class_analysis_a9fa4ad52de8cc42341212d09622949c7}{nodal\+Strain}}
+\begin{DoxyCompactList}\small\item\em The nodal strain n-\/by-\/4 matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_ae0e69d62aa3cd400b1ae46f430a59cb3}\label{class_analysis_ae0e69d62aa3cd400b1ae46f430a59cb3}} 
+Matrix\+Xd \mbox{\hyperlink{class_analysis_ae0e69d62aa3cd400b1ae46f430a59cb3}{nodal\+Stress}}
+\begin{DoxyCompactList}\small\item\em The nodal strain n-\/by-\/4 matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_analysis_aae14526bb70c6372fd662b46aab74d2d}\label{class_analysis_aae14526bb70c6372fd662b46aab74d2d}} 
+\index{Analysis@{Analysis}!Analysis@{Analysis}}
+\index{Analysis@{Analysis}!Analysis@{Analysis}}
+\subsubsection{\texorpdfstring{Analysis()}{Analysis()}}
+{\footnotesize\ttfamily Analysis\+::\+Analysis (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Custom constructor to create the mesh from input file for analysis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The path to the input file. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_analysis_8h}{Analysis.\+h}}\item 
+\mbox{\hyperlink{_analysis_8cpp}{Analysis.\+cpp}}\end{DoxyCompactItemize}

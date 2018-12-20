@@ -1,0 +1,402 @@
+unit NewLayer;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxLookAndFeelPainters, StdCtrls, cxButtons, cxContainer, cxEdit,
+  cxTextEdit, cxMaskEdit, cxSpinEdit, cxPC, cxControls, ExtCtrls,
+  cxRadioGroup, jpeg;
+
+type
+  TfrmNewLayer = class(TForm)
+    Image1: TImage;
+    Panel2: TPanel;
+    Image3: TImage;
+    Label3: TLabel;
+    Label4: TLabel;
+    PageControl: TcxPageControl;
+    tsLayerType: TcxTabSheet;
+    Label1: TLabel;
+    cmdNext: TcxButton;
+    cmdCancel: TcxButton;
+    rbAC: TcxRadioButton;
+    rbBase: TcxRadioButton;
+    rbSubbase: TcxRadioButton;
+    rbSubgrade: TcxRadioButton;
+    tsIsotropic: TcxTabSheet;
+    cmdBack: TcxButton;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    txtIsoModulus: TcxSpinEdit;
+    txtIsoPoisson: TcxSpinEdit;
+    txtIsoBodyForce: TcxSpinEdit;
+    txtIsoFriction: TcxSpinEdit;
+    txtIsoCohesion: TcxSpinEdit;
+    txtIsoRest: TcxSpinEdit;
+    lblInfo1: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    tsLayerStyle: TcxTabSheet;
+    lblInfo2: TLabel;
+    rbAnisotropic: TcxRadioButton;
+    rbIsotropic: TcxRadioButton;
+    tsLayerModel: TcxTabSheet;
+    lblInfo3: TLabel;
+    rbKTheta: TcxRadioButton;
+    rbUzan: TcxRadioButton;
+    Label11: TLabel;
+    txtLayerThickness: TcxSpinEdit;
+    Bevel1: TBevel;
+    tsKThetaModel: TcxTabSheet;
+    tsUzanModel: TcxTabSheet;
+    tsAnisotropic: TcxTabSheet;
+    Label38: TLabel;
+    Label37: TLabel;
+    Label36: TLabel;
+    Label35: TLabel;
+    Label34: TLabel;
+    Label33: TLabel;
+    Label32: TLabel;
+    Label31: TLabel;
+    Label30: TLabel;
+    Label29: TLabel;
+    Label28: TLabel;
+    Label27: TLabel;
+    Label26: TLabel;
+    Label25: TLabel;
+    Label24: TLabel;
+    lblInfo4: TLabel;
+    Label14: TLabel;
+    Label13: TLabel;
+    Label12: TLabel;
+    txtAnisoVertPoisson: TcxSpinEdit;
+    txtAnisoHorzPoisson: TcxSpinEdit;
+    txtAnisoRest: TcxSpinEdit;
+    txtAnisoCohesion: TcxSpinEdit;
+    txtAnisoModulus: TcxSpinEdit;
+    txtAnisoFriction: TcxSpinEdit;
+    txtAnisoBodyForce: TcxSpinEdit;
+    txtAnisoSVRatio: TcxSpinEdit;
+    txtAnisoHVRatio: TcxSpinEdit;
+    Label39: TLabel;
+    Label40: TLabel;
+    txtKThetaV1: TcxSpinEdit;
+    Label41: TLabel;
+    txtKThetaV2: TcxSpinEdit;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    txtKThetaH1: TcxSpinEdit;
+    txtKThetaH2: TcxSpinEdit;
+    txtKThetaS2: TcxSpinEdit;
+    Label46: TLabel;
+    Label47: TLabel;
+    txtKThetaS1: TcxSpinEdit;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label50: TLabel;
+    Label51: TLabel;
+    Label52: TLabel;
+    Label53: TLabel;
+    Label54: TLabel;
+    Label55: TLabel;
+    Label56: TLabel;
+    Label57: TLabel;
+    Label58: TLabel;
+    txtUzanS1: TcxSpinEdit;
+    txtUzanS2: TcxSpinEdit;
+    txtUzanH2: TcxSpinEdit;
+    txtUzanH1: TcxSpinEdit;
+    txtUzanV2: TcxSpinEdit;
+    txtUzanV1: TcxSpinEdit;
+    Label59: TLabel;
+    txtUzanV3: TcxSpinEdit;
+    Label60: TLabel;
+    txtUzanH3: TcxSpinEdit;
+    Label61: TLabel;
+    txtUzanS3: TcxSpinEdit;
+    tsEnd: TcxTabSheet;
+    lblInfo5: TLabel;
+    Label2: TLabel;
+    ImgLogo4: TImage;
+    tsBilinear: TcxTabSheet;
+    Label22: TLabel;
+    cxSpinEdit1: TcxSpinEdit;
+    cxSpinEdit2: TcxSpinEdit;
+    Label23: TLabel;
+    Label62: TLabel;
+    cxSpinEdit3: TcxSpinEdit;
+    Label64: TLabel;
+    Label65: TLabel;
+    Label66: TLabel;
+    cxSpinEdit4: TcxSpinEdit;
+    cxSpinEdit5: TcxSpinEdit;
+    cxSpinEdit6: TcxSpinEdit;
+    Label67: TLabel;
+    tsBrown: TcxTabSheet;
+    Label15: TLabel;
+    Label63: TLabel;
+    cxSpinEdit7: TcxSpinEdit;
+    cxSpinEdit8: TcxSpinEdit;
+    Label68: TLabel;
+    procedure cmdNextClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure PageControlPageChanging(Sender: TObject;
+      NewPage: TcxTabSheet; var AllowChange: Boolean);
+    procedure cmdBackClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure rbSubgradeClick(Sender: TObject);
+    procedure rbSubbaseClick(Sender: TObject);
+  private
+    FActivePage: integer;
+    PageList:array of integer;
+    LayerTypeStr:string;
+    procedure SetActivePage(const Value: integer);
+  private
+    Captions:TStringList;
+    AllowChangeTab:boolean;
+    property ActivePage:integer read FActivePage write SetActivePage;
+  public
+    Saving:boolean;
+  end;
+
+var
+  frmNewLayer: TfrmNewLayer;
+
+implementation
+uses Main;
+
+{$R *.dfm}
+
+procedure TfrmNewLayer.cmdNextClick(Sender: TObject);
+var
+  I:integer;
+  FLayer:PLayerWithPreview;
+  TotalHeight:double;
+  DynamicPageIndex:integer;
+begin
+
+  if PageControl.ActivePage=tsLayerType then
+  begin
+    if (rbAC.Checked=false) and (rbBase.Checked=false) and (rbSubbase.Checked=false) and (rbSubgrade.Checked=false) then
+    begin
+      MessageBox(Handle,'Please select the Layer Type and then click Next',PChar(Application.Title),MB_OK + MB_ICONINFORMATION);
+      Exit;
+    end;
+    if txtLayerThickness.Value<=0 then
+    begin
+      MessageBox(Handle,'Please type the layers thickness and then click Next',PChar(Application.Title),MB_OK + MB_ICONINFORMATION);
+      Exit;
+    end;
+
+    TotalHeight:=0;
+    for I:=0 to frmMain.LayerList.Count-1 do
+    begin
+      FLayer:=frmMain.LayerList.Items[I];
+      TotalHeight:=TotalHeight + FLayer.Layer.Thickness;
+    end;
+
+    //Burada sonraki tabsheetlerin listesi çýkarýlacak
+    //ve en son finiþe kadar gidecek
+    if rbAC.Checked then
+    begin
+      SetLength(PageList,3);
+      PageList[0]:=tsLayerType.TabIndex;
+      PageList[1]:=tsIsotropic.TabIndex;
+      PageList[2]:=tsEnd.TabIndex;
+
+      LayerTypeStr:=rbAC.Caption;
+      rbIsotropic.Checked:=true;
+
+    end;
+    if rbSubgrade.Checked then
+    begin
+      SetLength(PageList,5);
+
+      PageList[0]:=tsLayerType.TabIndex;
+      PageList[1]:=tsIsotropic.TabIndex;
+      PageList[2]:=tsLayerModel.TabIndex;
+      PageList[4]:=tsEnd.TabIndex;
+
+      rbKTheta.Caption:='Bilinear Subgrade';
+      rbUzan.Caption:='Brown & Loach Subgrade';
+
+      rbIsotropic.Checked:=true;
+
+      LayerTypeStr:=rbSubgrade.Caption;
+    end;
+
+    if (rbSubbase.Checked) or (rbBase.Checked) then
+    begin
+      SetLength(PageList,6);
+
+      PageList[0]:=tsLayerType.TabIndex;
+      PageList[1]:=tsLayerStyle.TabIndex;
+      PageList[3]:=tsLayerModel.TabIndex;
+      PageList[5]:=tsEnd.TabIndex;
+
+      rbKTheta.Caption:='K-Theta Model';
+      rbUzan.Caption:='Uzan Model';
+
+      if rbBase.Checked then LayerTypeStr:=rbBase.Caption;
+      if rbSubbase.Checked then LayerTypeStr:=rbSubbase.Caption;
+
+    end;
+    lblInfo1.Caption:=StringReplace(Captions.Strings[0] ,'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+    lblInfo2.Caption:=StringReplace(Captions.Strings[1],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+    lblInfo3.Caption:=StringReplace(Captions.Strings[2],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+    lblInfo4.Caption:=StringReplace(Captions.Strings[3],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+    lblInfo5.Caption:=StringReplace(Captions.Strings[4],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+
+    rbAnisotropic.Caption:=StringReplace(Captions.Strings[5],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+    rbIsotropic.Caption:=StringReplace(Captions.Strings[6],'%s',LayerTypeStr,[rfReplaceAll,rfIgnoreCase]	);
+
+    ActivePage:=ActivePage + 1;
+  end
+  else
+  begin
+    if PageList[ActivePage]=tsLayerStyle.TabIndex then
+    begin
+
+      if rbAnisotropic.Checked then
+        PageList[2]:=tsAnisotropic.TabIndex
+      else
+      begin
+        if rbIsotropic.Checked then
+          PageList[2]:=tsIsotropic.TabIndex
+        else
+        begin
+          MessageBox(Handle,'Please select the layer as isotropic or anisotropic and then click &Next.',PChar(Application.Title),MB_OK + MB_ICONINFORMATION);
+          Exit;
+        end;
+      end;
+    end;
+
+    if PageList[ActivePage]=tsLayerModel.TabIndex then
+    begin
+      if rbSubgrade.Checked then
+        DynamicPageIndex:=3
+      else
+        DynamicPageIndex:=4;
+      if rbKTheta.Checked then
+        PageList[DynamicPageIndex]:=tsKThetaModel.TabIndex
+      else
+      begin
+        if rbUzan.Checked then
+          PageList[DynamicPageIndex]:=tsUzanModel.TabIndex
+        else
+        begin
+          MessageBox(Handle,'Please select Nonlinear Model for this layer and then click &Next.',PChar(Application.Title),MB_OK + MB_ICONINFORMATION);
+          Exit;
+        end;
+      end;
+      if rbSubgrade.Checked then PageList[DynamicPageIndex]:=PageList[DynamicPageIndex] + 4;//Bilinear ve Browm modellerine jump edebilmesi için
+    end;
+    ActivePage:=ActivePage + 1;
+  end;
+end;
+
+procedure TfrmNewLayer.SetActivePage(const Value: integer);
+begin
+  FActivePage := Value;
+
+  if Value>High(PageList) then
+  begin
+    Saving:=true;
+    Close;
+  end
+  else
+  begin
+    if ActivePage=0 then
+      cmdBack.Enabled:=false
+    else
+      cmdBack.Enabled:=true;
+
+    if Value=High(PageList) then
+      cmdNext.Caption:='&Finish'
+    else
+      cmdNext.Caption:='&Next';
+      
+    AllowChangeTab:=true;
+    PageControl.ActivePageIndex:=PageList[Value];
+    AllowChangeTab:=false;
+  end;
+end;
+
+procedure TfrmNewLayer.FormCreate(Sender: TObject);
+begin
+  AllowChangeTab:=false;
+  FActivePage:=0;
+  PageControl.HideTabs:=true;
+
+  Captions:=TStringList.Create;
+  Captions.Add(lblInfo1.Caption);
+  Captions.Add(lblInfo2.Caption);
+  Captions.Add(lblInfo3.Caption);
+  Captions.Add(lblInfo4.Caption);
+  Captions.Add(lblInfo5.Caption);
+  Captions.Add(rbAnisotropic.Caption);
+  Captions.Add(rbIsotropic.Caption);
+
+end;
+
+procedure TfrmNewLayer.PageControlPageChanging(Sender: TObject;
+  NewPage: TcxTabSheet; var AllowChange: Boolean);
+begin
+  AllowChange:=AllowChangeTab;
+end;
+
+procedure TfrmNewLayer.cmdBackClick(Sender: TObject);
+begin
+  ActivePage:=ActivePage - 1;
+end;
+
+procedure TfrmNewLayer.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Captions.Free;
+end;
+
+procedure TfrmNewLayer.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+  if not Saving then
+  begin
+    if MessageBox(Handle,'Are you sure?',Pchar(Application.Title),MB_YESNO + MB_ICONQUESTION)=ID_NO then CanClose:=false;
+  end;
+end;
+
+procedure TfrmNewLayer.rbSubgradeClick(Sender: TObject);
+var
+  I:integer;
+  FLayer:PLayerWithPreview;
+  TotalHeight:double;
+begin
+  TotalHeight:=0;
+  for I:=0 to frmMain.LayerList.Count-1 do
+  begin
+    FLayer:=frmMain.LayerList.Items[I];
+    TotalHeight:=TotalHeight + FLayer.Layer.Thickness;
+  end;
+  txtLayerThickness.Value:=frmMain.Mesh.Depth - TotalHeight;
+  txtLayerThickness.Enabled:=false;
+
+end;
+
+procedure TfrmNewLayer.rbSubbaseClick(Sender: TObject);
+begin
+  txtLayerThickness.Enabled:=true;
+end;
+
+end.

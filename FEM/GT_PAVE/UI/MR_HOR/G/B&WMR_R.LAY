@@ -1,0 +1,17 @@
+#!MC
+$!DeActivateGraphics
+$!SetPath Stream   .
+$!SetPath Style    .
+$!SetPath DataFile .
+$!SetPath Bitdump  .
+$!SetPath ColorMap .
+$!SetPath TextGeom .
+$!SetPath Macro    .
+$!SetPath Equation .
+$!SetPath HardCopy .
+$!PrintPos X=31 Y=191.5 Scale=0.9 Orient Portrait
+$!ReadColorMap B&WMR_R.map
+$!ReadDataFile HD1_DAT2.PLT
+$!ReadStyleSheet B&WMR_R.s01
+$!ActivateGraphics
+$!RegenAll

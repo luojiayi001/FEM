@@ -1,0 +1,225 @@
+\hypertarget{class_node}{}\section{Node Class Reference}
+\label{class_node}\index{Node@{Node}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_node_ad7a34779cad45d997bfd6d3d8043c75f}\label{class_node_ad7a34779cad45d997bfd6d3d8043c75f}} 
+\mbox{\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_node}{Node}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node_a7dd5e46921c9aa573f8167e1f3d0acaa}{Node}} (const int \&index, const double \&x, const double \&y)
+\begin{DoxyCompactList}\small\item\em Custom constructor to create a node with given node coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_node_aef463e59f7af71d83b6392089c27bcba}\label{class_node_aef463e59f7af71d83b6392089c27bcba}} 
+\mbox{\hyperlink{class_node_aef463e59f7af71d83b6392089c27bcba}{Node}} (\mbox{\hyperlink{class_node}{Node}} const \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_node_a0abaefd98651b6cdba055d4644360170}\label{class_node_a0abaefd98651b6cdba055d4644360170}} 
+\mbox{\hyperlink{class_node}{Node}} const  \& \mbox{\hyperlink{class_node_a0abaefd98651b6cdba055d4644360170}{operator=}} (\mbox{\hyperlink{class_node}{Node}} const \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_node_aa0840c3cb5c7159be6d992adecd2097c}\label{class_node_aa0840c3cb5c7159be6d992adecd2097c}} 
+\mbox{\hyperlink{class_node_aa0840c3cb5c7159be6d992adecd2097c}{$\sim$\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_acea5ca0209b0c5cffa48d564320e4d56}{set\+Global\+Coord}} (const double \&x, const double \&y)
+\begin{DoxyCompactList}\small\item\em Assign the initial global coordinates (r,z) of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a9703bb2540dbc410edd3a168a6c51cd6}{set\+Disp}} (const double \&u, const double \&v)
+\begin{DoxyCompactList}\small\item\em Assign the final solved displacements (u,v) at the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a261921c1143a8dfb7f7f7f454ce827e3}{set\+Force}} (const double \&Fx, const double \&Fy)
+\begin{DoxyCompactList}\small\item\em Assign the final solved force (Fx, Fy) at the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a31e8635344b96ab5df9e6df5e5466533}{set\+Strain\+And\+Stress}} (const Vector\+Xd \&strain, const Vector\+Xd \&stress)
+\begin{DoxyCompactList}\small\item\em Cumulate the stress and strain values at this node by summing up the values from each adjacent element. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_node_a8a8d206f3e35f105b9a5e45d83e32126}{average\+Strain}} ()
+\begin{DoxyCompactList}\small\item\em Average the strain vector at this node. \end{DoxyCompactList}\item 
+const Vector\+Xd \& \mbox{\hyperlink{class_node_afe17aee2d10e0a65e48ad892a160f287}{average\+Stress}} ()
+\begin{DoxyCompactList}\small\item\em Average the stress vector at this node. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_node_a8266479b3d82c502d7b4abc5afccb8c0}{get\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Get the index of this node. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_node_ab0129116eb1cff646bd53b8120cd34e6}{get\+Global\+Coord}} () const
+\begin{DoxyCompactList}\small\item\em Get the initial global coordinates (r,z) of the node. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_node_a2024b690427f7840b18dc429d4acba7d}{get\+Disp}} () const
+\begin{DoxyCompactList}\small\item\em Get the solved displacements (u,v) at the node. \end{DoxyCompactList}\item 
+const Vector2d \& \mbox{\hyperlink{class_node_acb1728229a234694419ecda6ad5928c4}{get\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Get the solved force (Fx, Fy) at the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_node_a7dd5e46921c9aa573f8167e1f3d0acaa}\label{class_node_a7dd5e46921c9aa573f8167e1f3d0acaa}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{const int \&}]{index,  }\item[{const double \&}]{x,  }\item[{const double \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Custom constructor to create a node with given node coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index number of current node. \\
+\hline
+{\em x} & The global x-\/coordinate of the node. \\
+\hline
+{\em y} & The global y-\/coordinate of the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+All pass-\/by-\/ref. 
+\end{DoxyNote}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_node_a8a8d206f3e35f105b9a5e45d83e32126}\label{class_node_a8a8d206f3e35f105b9a5e45d83e32126}} 
+\index{Node@{Node}!average\+Strain@{average\+Strain}}
+\index{average\+Strain@{average\+Strain}!Node@{Node}}
+\subsubsection{\texorpdfstring{average\+Strain()}{averageStrain()}}
+{\footnotesize\ttfamily const Vector\+Xd \& Node\+::average\+Strain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Average the strain vector at this node. 
+
+\begin{DoxyReturn}{Returns}
+The average strain vector.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{class_node}{Node}} objects are dynamically allocated on heap memory, so we can return-\/by-\/ref. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_node_afe17aee2d10e0a65e48ad892a160f287}\label{class_node_afe17aee2d10e0a65e48ad892a160f287}} 
+\index{Node@{Node}!average\+Stress@{average\+Stress}}
+\index{average\+Stress@{average\+Stress}!Node@{Node}}
+\subsubsection{\texorpdfstring{average\+Stress()}{averageStress()}}
+{\footnotesize\ttfamily const Vector\+Xd \& Node\+::average\+Stress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Average the stress vector at this node. 
+
+\begin{DoxyReturn}{Returns}
+The average stress vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a2024b690427f7840b18dc429d4acba7d}\label{class_node_a2024b690427f7840b18dc429d4acba7d}} 
+\index{Node@{Node}!get\+Disp@{get\+Disp}}
+\index{get\+Disp@{get\+Disp}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Disp()}{getDisp()}}
+{\footnotesize\ttfamily const Vector2d \& Node\+::get\+Disp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the solved displacements (u,v) at the node. 
+
+\begin{DoxyReturn}{Returns}
+The displacements. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_acb1728229a234694419ecda6ad5928c4}\label{class_node_acb1728229a234694419ecda6ad5928c4}} 
+\index{Node@{Node}!get\+Force@{get\+Force}}
+\index{get\+Force@{get\+Force}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Force()}{getForce()}}
+{\footnotesize\ttfamily const Vector2d \& Node\+::get\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the solved force (Fx, Fy) at the node. 
+
+\begin{DoxyReturn}{Returns}
+The forces. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_ab0129116eb1cff646bd53b8120cd34e6}\label{class_node_ab0129116eb1cff646bd53b8120cd34e6}} 
+\index{Node@{Node}!get\+Global\+Coord@{get\+Global\+Coord}}
+\index{get\+Global\+Coord@{get\+Global\+Coord}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Global\+Coord()}{getGlobalCoord()}}
+{\footnotesize\ttfamily const Vector2d \& Node\+::get\+Global\+Coord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the initial global coordinates (r,z) of the node. 
+
+\begin{DoxyReturn}{Returns}
+The global coordinates. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a8266479b3d82c502d7b4abc5afccb8c0}\label{class_node_a8266479b3d82c502d7b4abc5afccb8c0}} 
+\index{Node@{Node}!get\+Index@{get\+Index}}
+\index{get\+Index@{get\+Index}!Node@{Node}}
+\subsubsection{\texorpdfstring{get\+Index()}{getIndex()}}
+{\footnotesize\ttfamily const int \& Node\+::get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the index of this node. 
+
+\begin{DoxyReturn}{Returns}
+The index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a9703bb2540dbc410edd3a168a6c51cd6}\label{class_node_a9703bb2540dbc410edd3a168a6c51cd6}} 
+\index{Node@{Node}!set\+Disp@{set\+Disp}}
+\index{set\+Disp@{set\+Disp}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Disp()}{setDisp()}}
+{\footnotesize\ttfamily void Node\+::set\+Disp (\begin{DoxyParamCaption}\item[{const double \&}]{u,  }\item[{const double \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Assign the final solved displacements (u,v) at the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The x-\/displacement at the node. \\
+\hline
+{\em v} & The y-\/displacement at the node. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_a261921c1143a8dfb7f7f7f454ce827e3}\label{class_node_a261921c1143a8dfb7f7f7f454ce827e3}} 
+\index{Node@{Node}!set\+Force@{set\+Force}}
+\index{set\+Force@{set\+Force}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Force()}{setForce()}}
+{\footnotesize\ttfamily void Node\+::set\+Force (\begin{DoxyParamCaption}\item[{const double \&}]{Fx,  }\item[{const double \&}]{Fy }\end{DoxyParamCaption})}
+
+
+
+Assign the final solved force (Fx, Fy) at the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Fx} & The x-\/force applied the node. \\
+\hline
+{\em Fy} & The y-\/force applied the node. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_acea5ca0209b0c5cffa48d564320e4d56}\label{class_node_acea5ca0209b0c5cffa48d564320e4d56}} 
+\index{Node@{Node}!set\+Global\+Coord@{set\+Global\+Coord}}
+\index{set\+Global\+Coord@{set\+Global\+Coord}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Global\+Coord()}{setGlobalCoord()}}
+{\footnotesize\ttfamily void Node\+::set\+Global\+Coord (\begin{DoxyParamCaption}\item[{const double \&}]{x,  }\item[{const double \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Assign the initial global coordinates (r,z) of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The global x-\/coordinate of the node. \\
+\hline
+{\em y} & The global y-\/coordinate of the node. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_a31e8635344b96ab5df9e6df5e5466533}\label{class_node_a31e8635344b96ab5df9e6df5e5466533}} 
+\index{Node@{Node}!set\+Strain\+And\+Stress@{set\+Strain\+And\+Stress}}
+\index{set\+Strain\+And\+Stress@{set\+Strain\+And\+Stress}!Node@{Node}}
+\subsubsection{\texorpdfstring{set\+Strain\+And\+Stress()}{setStrainAndStress()}}
+{\footnotesize\ttfamily void Node\+::set\+Strain\+And\+Stress (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{strain,  }\item[{const Vector\+Xd \&}]{stress }\end{DoxyParamCaption})}
+
+
+
+Cumulate the stress and strain values at this node by summing up the values from each adjacent element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strain} & The strain vector to be added to this node. The form is\+: \mbox{[}e(r), e(theta), e(z), gamma(rz)\mbox{]}. \\
+\hline
+{\em stress} & The stress vector to be added to this node. The form is\+: \mbox{[}s(r), s(theta), s(z), t(rz)\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is an internal step for computing the averaged strain and stress at each node. The cumulative value will be averaged later. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_node_8h}{Node.\+h}}\item 
+\mbox{\hyperlink{_node_8cpp}{Node.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,46 @@
+\hypertarget{class_element_q8}{}\section{Element\+Q8 Class Reference}
+\label{class_element_q8}\index{Element\+Q8@{Element\+Q8}}
+Inheritance diagram for Element\+Q8\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_element_q8}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_element_q8_a9cde8e57cd19b462443b0b20941455ed}\label{class_element_q8_a9cde8e57cd19b462443b0b20941455ed}} 
+{\bfseries Element\+Q8} (const int \&index, const std\+::vector$<$ int $>$ \&node\+List, \mbox{\hyperlink{class_node}{Node}} $\ast$$\ast$const mesh\+Node, \mbox{\hyperlink{class_material}{Material}} $\ast$const material)
+\item 
+\mbox{\hyperlink{class_shape}{Shape}} $\ast$const \mbox{\hyperlink{class_element_q8_a1d2c3824da803df5eb9cdd36acf48874}{shape}} () const
+\begin{DoxyCompactList}\small\item\em Get the shape of this element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_element_q8_a1d2c3824da803df5eb9cdd36acf48874}\label{class_element_q8_a1d2c3824da803df5eb9cdd36acf48874}} 
+\index{Element\+Q8@{Element\+Q8}!shape@{shape}}
+\index{shape@{shape}!Element\+Q8@{Element\+Q8}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape}{Shape}} $\ast$const Element\+Q8\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the shape of this element. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the shape object of this element.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+For different element, we would have different shape property, so we return a generic polymorphed \mbox{\hyperlink{class_shape}{Shape}} class pointer to achieve the standardized behavior of our program. It should also be noted that this is the only pure virtual method in \mbox{\hyperlink{class_element}{Element}} class, because the \mbox{\hyperlink{class_shape}{Shape}} property of each element type is stored as a static member of that derived class and cannot be generalized into a inheritable method. This is really an elegant solution to pave our path towards the hybrid element case. Note that we access using \mbox{\hyperlink{class_shape}{Shape}} pointer without storing a \mbox{\hyperlink{class_shape}{Shape}} instance or even a \mbox{\hyperlink{class_shape}{Shape}} pointer in the \mbox{\hyperlink{class_element}{Element}} class, which is also memory efficient for large-\/scale problems. And returning a const pointer secures the usage of \mbox{\hyperlink{class_shape}{Shape}} object. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_element_aadc36f89fa5f11da7e74d6528ecdcacc}{Element}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_element_q8_8h}{Element\+Q8.\+h}}\item 
+\mbox{\hyperlink{_element_q8_8cpp}{Element\+Q8.\+cpp}}\end{DoxyCompactItemize}

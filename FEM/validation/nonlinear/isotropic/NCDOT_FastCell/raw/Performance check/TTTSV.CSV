@@ -1,0 +1,61 @@
+UNIVERSITY OF ILLINOIS,,,,,,,,,,,,
+IPC    Universal Testing Machine (UTM V2.13B9),,,,,,,,,,,,
+[F044] Vx.xx FastCell Stress Stage Test,,,,,,,,,,,,
+Thursday March 23, 2017  1:03 PM,,,,,,,,,,,
+,,,,,,,,,,,,
+      specimen identification: tttsv,,,,,,,,,,,,
+         specimen length (mm): 150.0,,,,,,,,,,,,
+       specimen diameter (mm): 150.0,,,,,,,,,,,,
+                      comment: 4,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+                      comment: ,,,,,,,,,,,,
+acquisition timebase [1..4ms]: 1,,,,,,,,,,,,
+     loading rest period (ms): 900,,,,,,,,,,,,
+     stress program file name: C:\FASTCELL\VERT1.TXT,,,,,,,,,,,,
+     archive binary file name: C:\FASTCELL\UTM44BIN\TTTSV.BIN,,,,,,,,,,,,
+  ASCII output data file name: C:\FASTCELL\UTM44CSV\TTTSV.CSV,,,,,,,,,,,,
+     test variant description: YHB,,,,,,,,,,,,
+final reading of measured parameters:,,,,,,,,,,,,
+   prog sequence pulse count,-6,       axial base stress (kPa),35,,,,,,,,,
+   axial_1 lvdt % full scale,99,   axial deviator stress (kPa),69,,,,,,,,,
+   axial_2 lvdt % full scale,100,      radial base stress (kPa),35,,,,,,,,,
+    radial lvdt % full scale,50,  radial deviator stress (kPa),8,,,,,,,,,
+  actuator lvdt % full scale,75,   axial_1 resil deform'n (æm),153,,,,,,,,,
+   axial resil modulus (MPa),79.9,   axial_2 resil deform'n (æm),105,,,,,,,,,
+  radial resil modulus (MPa),66,  diam resilient deform'n (æm),19,,,,,,,,,
+            temperature (øC),0,                              ,       ,,,,,,,,,
+                            ,       ,                              ,       ,,,,,,,,,
+                            ,       ,                              ,       ,,,,,,,,,
+                            ,       ,                              ,       ,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Sequence,Pulse,AxBaseStrs,AxDevStrs,RadBaseStrs,RadDevStrs,AxResDef_1,AxResDef_2,RadResDef,AxModulus,SD_AxModulus,RadModulus,SD_RadModulus
+Number,Group,(kPa),(kPa),(kPa),(kPa),(um),(um),(um),(MPa),(MPa),(MPa),(MPa)
+0,1,29.6,10.8,25.3,12.2,13.4,1,-5.2,314.8,569.72,346.2,169.94
+0,2,20.7,20.8,20.7,2.1,53,0,-2.6,117.7,2.46,50.9,32.52
+0,3,20.5,20.6,20.6,2.3,52.3,0,5.2,118.1,1.25,70.9,17.62
+0,4,20.5,20.8,20.7,2.2,53.2,0,8.7,117.1,1.48,37.4,0
+1,1,20.2,42.3,20.7,4.3,104,31,13.1,94.1,1.54,51.6,13.46
+1,2,20.5,41.9,20.8,4.2,103.8,31,12.2,93.2,0.46,58.2,19.92
+1,3,20.5,41.6,20.7,4.2,104,31,13.9,92.4,0.95,45.4,5.35
+1,4,20.6,41.8,20.7,4.4,103.3,31.7,9.6,92.9,1.6,70.7,11.29
+2,1,20.2,62.4,20.6,6.4,149.5,78.9,20,81.9,1.11,48.9,6.09
+2,2,20.6,61.5,20.9,6,148.2,79.1,16.5,81.1,0.36,54.9,7.68
+2,3,20.5,61.7,20.8,6.2,149,79.9,17.4,80.9,0.65,53.5,0
+2,4,20.5,61.6,20.7,6.3,148.7,80.3,15.7,80.6,0.39,61.2,9.87
+3,1,36.9,32.4,34.4,1.9,74.5,29.8,11.3,95.2,14.95,27.8,7.86
+3,2,34.5,34.8,34.9,4,79.4,26.1,12.2,99,1.3,51.1,10.39
+3,3,34.6,34.7,34.9,4.2,79.6,26.4,10.4,98.3,0.94,62.2,13.09
+3,4,34.6,34.7,34.8,4.2,79.9,27.1,13.1,97.4,1.27,50.9,13.28
+4,1,34.4,69.2,34.8,8.4,154.8,103.5,19.1,80.4,0.87,66.4,7.91
+4,2,34.6,68.9,34.8,8.4,153.4,104,20,80.3,0.83,66.4,18.77
+4,3,34.6,68.8,34.8,8.3,153.6,104.8,17.4,79.9,0.82,71.7,0
+4,4,34.7,68.7,34.9,8.3,153.4,104.5,19.1,79.9,0.73,66,7.86

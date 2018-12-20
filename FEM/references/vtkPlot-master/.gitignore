@@ -1,0 +1,9 @@
+*~
+.cproject
+.project
+.pydevproject
+.settings
+build
+X.dat
+Y.dat
+Z.dat
